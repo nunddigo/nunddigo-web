@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /eyetest/
+
+Sitemap: https://nunddigo.netlify.app/sitemap.xml
