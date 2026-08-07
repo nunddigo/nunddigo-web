@@ -6,17 +6,18 @@
 <meta name="robots" content="noindex, nofollow" />
 <title>브랜드 시력 검사 · 눈띄고</title>
 <meta name="description" content="내 브랜드, 진짜 눈에 띌까? 시장의 눈으로 보는 브랜드 시력 검사 — 눈띄고" />
-<!-- ⚠ 배포 후: og:url / og:image 를 절대경로(https://당신도메인/og_image.png)로 교체하면 카톡 미리보기가 정확히 뜹니다 -->
+<link rel="canonical" href="https://eyetest.nunddigo.com/" />
+<link rel="icon" type="image/png" href="favicon.png" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://nunddigo.netlify.app/eyetest/" />
+<meta property="og:url" content="https://eyetest.nunddigo.com/" />
 <meta property="og:title" content="내 브랜드, 진짜 눈에 띌까? · 브랜드 시력 검사" />
 <meta property="og:description" content="MD와 고객의 눈으로 15가지. 시장 시력 · 맹점 · 오늘 무료로 손볼 것을 짚어드립니다. — 눈띄고" />
-<meta property="og:image" content="https://nunddigo.netlify.app/eyetest/og_image.png" />
+<meta property="og:image" content="https://eyetest.nunddigo.com/og_image_eyetest_sns.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="내 브랜드, 진짜 눈에 띌까? · 브랜드 시력 검사" />
-<meta name="twitter:image" content="https://nunddigo.netlify.app/eyetest/og_image.png" />
+<meta name="twitter:image" content="https://eyetest.nunddigo.com/og_image_eyetest_sns.png" />
 <!-- 〈브랜드 시력 검사〉 v8 · 다크 시네마틱 · noindex
      디자인 규칙: 딥 레드 다크 · 터프러브 · AI스러움 금지 · 레드=진단/그린=처방
      흐름: 인트로 → 업종(X) → 목표(Y·다중) → 15문항 → 검안 중 → 결과 -->
@@ -457,7 +458,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
 
   </div>
   <div class="savebar">
-    <button class="btn ghost full" id="saveImg">결과 이미지로 저장 &nbsp;&#8595;</button>
+    <button class="btn ghost full" id="copy">처방전 텍스트 복사 &nbsp;&#10697;</button>
   </div>
   <div class="foot">
     <div class="sig">Open Your Brand.  O_o!</div>
@@ -763,10 +764,12 @@ function sendRx(){
 function showRxDone(email){
   var rx=document.querySelector(".rxbox");
   if(!rx)return;
-  rx.innerHTML='<div class="rlbl green">접수 완료 · Received</div>'
-    +'<h3>처방전 신청이 접수됐습니다.</h3>'
-    +'<p class="intro-p">눈띄고가 대표님 브랜드를 직접 열어보고, <b>'+email+'</b> 로 <b>처방전 한 장</b>을 보내드립니다. 주 5장 한정이라 순서대로 회신됩니다.</p>'
-    +'<div class="cap">◔ 보통 48시간 내 회신</div>';
+  rx.style.textAlign="center";
+  rx.innerHTML='<div class="rlbl green" style="justify-content:center">접수 완료 · Received</div>'
+    +'<h3 style="margin-bottom:8px">접수됐습니다.</h3>'
+    +'<p class="intro-p">처방전은 <b>영업일 기준 48시간 내</b>에 <b>'+email+'</b>로 갑니다.<br>급하시면 아래의 채널로 문의 남겨주세요.</p>'
+    +'<button class="btn full" id="kko">가장 빠른 1:1 카카오 &nbsp;&#8594;</button>';
+  document.getElementById("kko").onclick=function(){window.open("http://pf.kakao.com/_emxgvK/chat","_blank","noopener")};
   rx.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
@@ -780,56 +783,19 @@ document.getElementById("prev").onclick=function(){if(cur>0){cur--;save();render
 document.getElementById("addLink").onclick=addLinkRow;
 document.getElementById("rxSend").onclick=sendRx;
 function resetAll(){ans={};cur=0;sector="";sectorEtc="";goals=[];goalEtc="";try{localStorage.removeItem(KEY);}catch(e){}go("s-intro");topShow(false);gauge();}
-function roundRectC(x,rx,ry,w,h,r){x.beginPath();x.moveTo(rx+r,ry);x.arcTo(rx+w,ry,rx+w,ry+h,r);x.arcTo(rx+w,ry+h,rx,ry+h,r);x.arcTo(rx,ry+h,rx,ry,r);x.arcTo(rx,ry,rx+w,ry,r);x.closePath();}
-function wrapCenter(x,text,cx,y,maxW,lh){var w=text.split(" "),line="",lines=[];for(var i=0;i<w.length;i++){var t=line?line+" "+w[i]:w[i];if(x.measureText(t).width>maxW&&line){lines.push(line);line=w[i];}else line=t;}if(line)lines.push(line);for(var j=0;j<lines.length;j++)x.fillText(lines[j],cx,y+j*lh);return lines.length;}
-function drawEyeC(x,cx,cy,r,v){var col=v<=0.7?"#DA3A33":v<=1.3?"#C9852E":"#1BAE72",sc=r/33;
-  x.strokeStyle="rgba(255,255,255,.17)";x.lineWidth=3;x.beginPath();x.arc(cx,cy,r,0,Math.PI*2);x.stroke();
-  x.strokeStyle=col;x.fillStyle=col;x.lineWidth=r*0.13;x.lineCap="round";x.lineJoin="round";
-  if(v<=0.7){x.beginPath();x.moveTo(cx-14*sc,cy+4*sc);x.quadraticCurveTo(cx,cy+11*sc,cx+14*sc,cy+4*sc);x.stroke();}
-  else if(v<=1.3){x.beginPath();x.moveTo(cx-15*sc,cy+4*sc);x.quadraticCurveTo(cx,cy-7*sc,cx+15*sc,cy+4*sc);x.stroke();x.beginPath();x.arc(cx,cy+3*sc,4.4*sc,0,Math.PI*2);x.fill();}
-  else{x.beginPath();x.moveTo(cx-17*sc,cy);x.quadraticCurveTo(cx,cy-15*sc,cx+17*sc,cy);x.quadraticCurveTo(cx,cy+15*sc,cx-17*sc,cy);x.stroke();x.beginPath();x.arc(cx,cy,6.2*sc,0,Math.PI*2);x.fill();}}
-function saveImage(){
-  var btn=document.getElementById("saveImg"),old=btn.textContent,v=window._vision,b=window._blind;
-  btn.textContent="이미지 만드는 중…";
-  function draw(){
-    var W=1080,H=1560,c=document.createElement("canvas");c.width=W;c.height=H;var x=c.getContext("2d");
-    x.fillStyle="#0C0B0A";x.fillRect(0,0,W,H);
-    var g=x.createRadialGradient(W*0.82,-40,60,W*0.82,-40,1100);g.addColorStop(0,"rgba(218,58,51,0.16)");g.addColorStop(1,"rgba(218,58,51,0)");x.fillStyle=g;x.fillRect(0,0,W,H);
-    x.strokeStyle="#ECE8DF";x.lineWidth=3;roundRectC(x,50,50,W-100,H-100,26);x.stroke();
-    x.textBaseline="alphabetic";
-    x.fillStyle="#89857B";x.font="600 25px Pretendard,sans-serif";x.textAlign="left";x.fillText("BRAND EYE-TEST · 검안 결과지",100,124);
-    x.textAlign="right";x.fillStyle="#DA3A33";x.font="700 25px Pretendard,sans-serif";x.fillText("눈띄고 · O_o!",980,124);
-    x.strokeStyle="rgba(255,255,255,.14)";x.lineWidth=1;x.beginPath();x.moveTo(100,152);x.lineTo(980,152);x.stroke();
-    var gl=goalLabels();x.textAlign="center";x.fillStyle="#89857B";x.font="500 29px Pretendard,sans-serif";x.fillText(sectorLabel()+"    ×    "+(gl.length?gl.join("·"):"—"),W/2,226);
-    x.fillStyle="#DA3A33";x.font="600 21px Pretendard,sans-serif";x.fillText("시장 시력 · MARKET VISION",W/2,282);
-    x.fillStyle="#ECE8DF";x.font="800 200px Pretendard,sans-serif";x.fillText(v.toFixed(1),W/2,458);
-    drawEyeC(x,W/2,548,42,v);
-    x.font="800 46px Pretendard,sans-serif";x.fillStyle="#ECE8DF";x.fillText(document.getElementById("verdict").textContent,W/2,664);
-    var sbx0=120,sbx1=W-120,sby=706,grad=x.createLinearGradient(sbx0,0,sbx1,0);grad.addColorStop(0,"#DA3A33");grad.addColorStop(0.5,"#C9852E");grad.addColorStop(1,"#1BAE72");x.fillStyle=grad;roundRectC(x,sbx0,sby,sbx1-sbx0,14,7);x.fill();
-    var mx=sbx0+(sbx1-sbx0)*(v/2);x.fillStyle="#ECE8DF";x.beginPath();x.arc(mx,sby+7,15,0,Math.PI*2);x.fill();x.fillStyle="#0C0B0A";x.beginPath();x.arc(mx,sby+7,6,0,Math.PI*2);x.fill();
-    x.textAlign="left";x.fillStyle="#89857B";x.font="600 21px Pretendard,sans-serif";x.fillText("축별 진단 · 5 AXIS",110,812);
-    var rowY=862;
-    for(var a=0;a<5;a++){var sc=aScore(a),col=sc<=1?"#DA3A33":sc>=3?"#1BAE72":"#C9852E";
-      x.textAlign="left";x.fillStyle="#B7B3A9";x.font="700 25px Pretendard,sans-serif";x.fillText(AXES[a].t,110,rowY+8);
-      var tbx=260,tbw=560;x.fillStyle="rgba(255,255,255,.09)";roundRectC(x,tbx,rowY-6,tbw,14,7);x.fill();
-      x.fillStyle=col;roundRectC(x,tbx,rowY-6,Math.max(14,tbw*sc/3),14,7);x.fill();
-      x.textAlign="right";x.fillStyle="#89857B";x.font="500 23px Pretendard,sans-serif";x.fillText(sc+"/3",968,rowY+8);
-      rowY+=62;}
-    x.textAlign="center";x.fillStyle="#DA3A33";x.font="600 21px Pretendard,sans-serif";x.fillText("맹점 · BLIND SPOT",W/2,rowY+34);
-    var bw=b.sunk>=3?"전면 재검안":((b.min<=1&&b.tied.length>1)?b.tied:[b.blind]).map(function(i){return AXES[i].t;}).join(" · ");
-    x.fillStyle="#ECE8DF";x.font="800 50px Pretendard,sans-serif";x.fillText(bw,W/2,rowY+100);
-    var fy=rowY+172;
-    x.fillStyle="#1BAE72";x.font="600 21px Pretendard,sans-serif";x.fillText("초점 · 오늘 무료로 손볼 것",W/2,fy);
-    x.fillStyle="#ECE8DF";x.font="700 29px Pretendard,sans-serif";
-    wrapCenter(x,document.getElementById("fix").textContent,W/2,fy+46,840,38);
-    x.strokeStyle="rgba(255,255,255,.14)";x.lineWidth=1;x.beginPath();x.moveTo(100,H-88);x.lineTo(980,H-88);x.stroke();
-    x.fillStyle="#5E5B53";x.font="500 24px Pretendard,sans-serif";x.textAlign="center";x.fillText("Open Your Brand. O_o!  ·  2021 © nunddigo",W/2,H-50);
-    var a2=document.createElement("a");a2.download="브랜드시력검사_"+v.toFixed(1)+".png";a2.href=c.toDataURL("image/png");a2.click();
-    btn.textContent="저장됐습니다 ✓";setTimeout(function(){btn.textContent=old;},1800);
-  }
-  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(draw);}else{draw();}
-}
-document.getElementById("saveImg").onclick=saveImage;
+document.getElementById("copy").onclick=function(){
+  var v=window._vision,b=window._blind;
+  var bw=b.sunk>=3?"전면 재검안":((b.min<=1&&b.tied.length>1)?b.tied:[b.blind]).map(function(i){return AXES[i].t;}).join(" · ");
+  var t='['+document.getElementById("repNo").textContent+']\n\n'+
+  '검사 대상  '+sectorLabel()+' × '+(goalLabels().length?goalLabels().join('·'):'—')+'\n'+
+  '시장 시력  '+v.toFixed(1)+'  '+document.getElementById("verdict").textContent+'\n'+
+  '맹점       '+bw+'\n'+
+  '초점       '+document.getElementById("fix").textContent+'\n\n'+
+  'Open Your Brand.\nnunddigo.com  O_o';
+  var btn=this,old=btn.innerHTML;
+  navigator.clipboard.writeText(t).then(function(){btn.textContent='복사됐습니다 ✓';
+    setTimeout(function(){btn.innerHTML=old;},1800)},function(){btn.textContent='복사 실패'});
+};
 document.getElementById("reset").onclick=resetAll;
 
 (function init(){
