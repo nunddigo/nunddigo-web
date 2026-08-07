@@ -1,0 +1,668 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>디자인 눈맞춤 · BRAND EYE-FIT | 눈띄고</title>
+<meta name="description" content="내 디자인, 눈부터 맞추자. 브랜드를 위한 레퍼런스 도구.">
+<link rel="canonical" href="https://nunddigo.com/fit/">
+<meta property="og:type" content="website"><meta property="og:title" content="디자인 눈맞춤 · BRAND EYE-FIT">
+<meta property="og:description" content="내 디자인, 눈부터 맞추자."><meta property="og:url" content="https://nunddigo.com/fit/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --bg:#0C0B0A; --panel:#151311; --panel2:#1C1917;
+  --text:#ECE8DF; --soft:#B7B3A9; --muted:#89857B; --faint:#5E5B53;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.17);
+  --red:#DA3A33; --green:#1BAE72; --amber:#C9852E;
+  --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+  --sans:"Pretendard",-apple-system,BlinkMacSystemFont,sans-serif;
+  --eo:cubic-bezier(0.22,1,0.36,1); --maxw:600px; --r:12px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;
+letter-spacing:-.011em;-webkit-font-smoothing:antialiased;position:relative;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+background:radial-gradient(130% 70% at 82% -5%,rgba(218,58,51,.16),transparent 55%),
+radial-gradient(90% 50% at 8% 108%,rgba(218,58,51,.08),transparent 60%)}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.p-cta:focus-visible{outline-offset:-3px}
+
+/* 상단 진행바 */
+.top{position:fixed;top:0;left:0;right:0;z-index:99;background:rgba(12,11,10,.82);backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line);padding:13px 0;opacity:0;transform:translateY(-100%);transition:.45s var(--eo)}
+.top.show{opacity:1;transform:none}
+.top .in{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:13px}
+.brand{font-weight:800;font-size:13px;letter-spacing:.02em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.eye{width:11px;height:11px;border:2px solid var(--red);border-radius:50%;position:relative;display:inline-block}
+.eye::after{content:"";position:absolute;width:3px;height:3px;background:var(--red);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.track{flex:1;height:6px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden}
+.fill{display:block;height:100%;width:0;background:var(--red);border-radius:5px;transition:width .5s var(--eo)}
+.cnt{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+
+.screen{display:none;min-height:100vh;animation:fade .5s var(--eo)}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--text);color:#0C0B0A;
+font-size:15px;font-weight:800;padding:16px 28px;border-radius:40px;border:1.5px solid var(--text);cursor:pointer;
+font-family:var(--sans);transition:transform .16s var(--eo),box-shadow .16s var(--eo),opacity .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -14px rgba(236,232,223,.5)}
+.btn:active{transform:scale(.975);transition-duration:90ms}
+.btn:disabled{opacity:.28;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--line2);font-weight:700}
+.btn.green{background:var(--green);color:#04140D;border-color:var(--green)}
+.btn.green:hover{box-shadow:0 12px 30px -14px rgba(27,174,114,.7)}
+.btn.full{width:100%}
+
+/* 인트로 */
+#s0 .wrap{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:24px 22px 20px}
+.poster{border:1.5px solid var(--text);border-radius:14px;overflow:hidden}
+.p-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:11px 14px;
+border-bottom:1.5px solid var(--text);font-family:var(--mono);font-size:10px;letter-spacing:.13em;
+text-transform:uppercase;color:var(--muted)}
+.p-top .pt-l{color:var(--red);font-weight:700}
+.p-top .pt-c{text-align:center;white-space:nowrap}
+.p-top .pt-r{justify-self:end;border:1px solid var(--red);color:var(--red);border-radius:20px;padding:2px 10px;font-weight:700}
+.p-hero{position:relative;padding:22px 16px 20px;border-bottom:1.5px solid var(--text)}
+.p-brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:clamp(13px,3.6vw,16px);
+letter-spacing:.04em;color:var(--red);text-transform:uppercase;margin-bottom:14px}
+.p-brand::before{content:"";width:22px;height:11px;background:repeating-linear-gradient(90deg,var(--red) 0 2px,transparent 2px 4px)}
+#s0 h1{font-size:clamp(40px,11vw,62px);font-weight:800;letter-spacing:-.05em;line-height:1.04;margin:0}
+.stamp{position:absolute;right:12px;top:16px;width:62px;height:62px;animation:sp 24s linear infinite}
+.stamp text{font-family:var(--mono);font-size:8px;letter-spacing:.12em;fill:var(--soft);text-transform:uppercase}
+.stamp .pupil{fill:var(--red)}.stamp .sc{fill:none;stroke:var(--line2);stroke-width:1}
+@keyframes sp{to{transform:rotate(360deg)}}
+.p-spec{padding:15px 16px;border-bottom:1.5px solid var(--text)}
+.specbar{height:13px;border-radius:2px;background:linear-gradient(90deg,var(--red),var(--amber),var(--green))}
+.p-out{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1.5px solid var(--text)}
+.ocell{padding:14px 12px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.ocell:last-child{border-right:none}
+.ocell .on{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.08em}
+.ocell .ok{font-weight:800;font-size:clamp(15px,4.6vw,19px);display:flex;align-items:center;gap:7px;letter-spacing:-.02em}
+.ocell .ok::before{content:"";width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ocell.dg .ok::before{background:var(--red)}.ocell.fc .ok::before{background:var(--green)}
+.p-cta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--text);
+color:#0C0B0A;border:none;border-bottom:1.5px solid var(--text);padding:20px 16px 20px 20px;font-family:var(--sans);
+font-size:clamp(30px,9vw,48px);font-weight:800;letter-spacing:-.04em;cursor:pointer;transition:background .18s var(--eo),color .18s var(--eo)}
+.p-cta:hover{background:var(--red);color:var(--text)}
+.p-cta .arw{width:clamp(42px,12vw,58px);height:clamp(42px,12vw,58px);border-radius:50%;background:#0C0B0A;
+color:var(--text);display:inline-flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;
+flex-shrink:0;transition:transform .2s var(--eo)}
+.p-cta:hover .arw{transform:translateX(4px)}
+.p-code{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1.5px solid var(--text)}
+.barcode{flex:1;height:24px;opacity:.5;background-image:repeating-linear-gradient(90deg,var(--text) 0 1px,transparent 1px 3px,var(--text) 3px 4px,transparent 4px 8px,var(--text) 8px 10px,transparent 10px 13px)}
+.p-code .cd{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.08em;white-space:nowrap}
+.marquee{overflow:hidden;background:var(--red)}
+.mq-track{display:inline-flex;white-space:nowrap;animation:mq 20s linear infinite}
+.mq-track span{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;color:#0C0B0A;padding:9px 0;text-transform:uppercase}
+.mq-track span b{padding:0 14px;font-weight:700}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.oresume{margin:14px 0 0;font-size:13px;color:var(--muted);text-align:center}
+.oresume button{background:none;border:none;color:var(--text);text-decoration:underline;cursor:pointer;font-size:13px;font-family:var(--sans);padding:0}
+.hfoot{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.06em;text-align:center;margin-top:12px;line-height:1.9}
+
+/* 선택 화면 */
+.pick{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:92px 0 56px}
+.pick .tag{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.pick h2{font-size:clamp(26px,6.4vw,36px);font-weight:800;letter-spacing:-.035em;line-height:1.16;margin:0 0 10px}
+.pick .sub{color:var(--muted);font-size:14.5px;margin:0 0 26px;line-height:1.55}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.card{position:relative;display:flex;flex-direction:column;gap:4px;padding:19px 18px;border:1px solid var(--line2);
+border-radius:15px;background:var(--panel);cursor:pointer;text-align:left;font-family:var(--sans);color:var(--text);
+transition:.15s var(--eo);min-height:74px;justify-content:center}
+.card:hover{border-color:var(--text);transform:translateY(-1px)}
+.card:active{transform:scale(.98)}
+.card.on{border-color:var(--red);background:var(--panel2);box-shadow:inset 0 0 0 1px var(--red)}
+.card.on::after{content:"✓";position:absolute;top:11px;right:14px;font-size:12px;font-weight:800;color:var(--red)}
+.card .nm{font-size:16px;font-weight:800;letter-spacing:-.02em}
+.card .dc{font-size:11.5px;color:var(--muted);line-height:1.3}
+.card.lock{opacity:.34;cursor:default;border-style:dashed}
+.card.lock:hover{transform:none;border-color:var(--line2)}
+.pickbar{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:12px}
+.pickbar .hintg{font-size:12.5px;color:var(--muted)}
+.backlink{text-align:center;margin-top:20px}
+.backlink button{background:none;border:none;color:var(--faint);font-size:11.5px;text-decoration:underline;cursor:pointer;font-family:var(--sans)}
+.subhead{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin:26px 0 14px}
+.subhead b{color:var(--muted);font-weight:400}
+.note{font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.5;margin:12px 0 0;border-left:2px solid var(--red);padding-left:10px}
+.note.g{border-color:var(--green)}
+
+/* 축 */
+.pvbox{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);padding:9px;margin-bottom:26px}
+.pv{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.pv::-webkit-scrollbar{display:none}
+.pv figure{flex:0 0 74%;margin:0;border-radius:9px;overflow:hidden;background:var(--panel2)}
+.pv img{width:100%;display:block;transition:opacity .1s linear}.pv img.f{opacity:0}
+.pv figcaption{font-family:var(--mono);font-size:8.5px;color:var(--faint);padding:5px 7px}
+.ax{padding:16px 0;border-top:1px solid var(--line)}
+.ax:last-of-type{border-bottom:1px solid var(--line)}
+.axl{display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:var(--faint);margin-bottom:6px;transition:color .2s}
+.ax.on .axl{color:var(--text)}
+input[type=range]{width:100%;-webkit-appearance:none;background:transparent;height:26px;opacity:.34;transition:opacity .2s;cursor:grab}
+.ax.on input[type=range]{opacity:1}
+input[type=range]:active{cursor:grabbing}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--line2);border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--text);margin-top:-10px}
+input[type=range]::-moz-range-track{height:2px;background:var(--line2)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:var(--text)}
+
+/* 무드 */
+.moods{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.mood{border:1px solid var(--line2);border-radius:15px;overflow:hidden;background:var(--panel);transition:.15s var(--eo)}
+.mood:hover{border-color:var(--text)}
+.mood.on{border-color:var(--red);box-shadow:inset 0 0 0 1px var(--red)}
+.mood.rec .nm{color:var(--green)}
+.pg{aspect-ratio:4/3;position:relative;overflow:hidden;cursor:pointer}.pg>*{position:absolute}
+.grain{left:0;right:0;top:0;bottom:0;background-image:radial-gradient(rgba(0,0,0,.13) .5px,transparent .5px);background-size:3px 3px}
+.mood .nm{font-size:14px;font-weight:800;letter-spacing:-.02em;padding:12px 14px 3px;cursor:pointer}
+.mood .dc{font-size:11.5px;color:var(--muted);padding:0 14px 10px;line-height:1.3}
+.mood .peek{font-family:var(--mono);font-size:9.5px;color:var(--faint);padding:0 14px 12px;cursor:pointer}
+.real{padding:0 8px 8px}.real img{width:100%;border-radius:9px;display:block}
+.free{margin-top:22px;border:1px dashed var(--line2);border-radius:15px;padding:18px}
+.free .h{font-size:14px;font-weight:800;margin-bottom:11px}
+.free input{width:100%;padding:15px 16px;border:1.5px solid var(--line2);border-radius:14px;background:var(--panel2);
+font-family:var(--sans);font-size:15px;color:var(--text)}
+.free input:focus{outline:none;border-color:var(--red)}
+.free input::placeholder{color:var(--faint)}
+.sugg{margin-top:11px;font-size:13px;color:var(--soft);line-height:1.6}.sugg b{color:var(--green)}
+
+/* 컬러 */
+.sw{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.sw button{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line2);
+border-radius:15px;padding:16px 16px;color:var(--text);font-family:var(--sans);font-size:14.5px;font-weight:700;
+cursor:pointer;transition:.15s var(--eo);text-align:left}
+.sw button:hover{border-color:var(--text)}
+.sw button.on{border-color:var(--red);background:var(--panel2);box-shadow:inset 0 0 0 1px var(--red)}
+.ci{width:17px;height:17px;border-radius:50%;flex:0 0 17px;border:1px solid var(--line2)}
+
+/* 검안 중 */
+.scan{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:60px 0}
+.orb{width:70px;height:70px;position:relative}
+.orb b,.orb i,.orb u{position:absolute;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.orb b{width:70px;height:70px;border:2px dashed var(--red);animation:spin 3.4s linear infinite}
+.orb i{width:44px;height:44px;border:2px dotted rgba(236,232,223,.4);animation:spin 2.2s linear infinite reverse}
+.orb u{width:12px;height:12px;background:var(--red);animation:pl 1.4s ease-in-out infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes pl{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1}50%{transform:translate(-50%,-50%) scale(.55);opacity:.5}}
+.scan .st{font-family:var(--mono);font-size:14px;letter-spacing:.04em;font-weight:600}
+
+/* 결과 */
+.result{padding:88px 0 36px}
+.rframe{border:1.5px solid var(--text);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:11px}
+.rbox{border:1px solid var(--line2);border-radius:var(--r);padding:20px 18px;background:var(--panel)}
+.rbox.accent-red{border-color:var(--red)}.rbox.accent-green{border-color:var(--green)}
+.rbox.dark{background:#050505}
+.rlbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);
+margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rlbl::before{content:"";width:13px;height:11px;flex-shrink:0;background:repeating-linear-gradient(90deg,currentColor 0 2.5px,transparent 2.5px 4.5px)}
+.rlbl.red{color:var(--red)}.rlbl.green{color:var(--green)}
+.mast{padding:0;overflow:hidden}
+.mast-bar{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line2);
+font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.mast-bar .mh-no{color:var(--red);font-weight:700}
+.mast-ttl{display:flex;align-items:center;gap:11px;padding:15px 16px}
+.mast-ttl .stripe{display:inline-flex;gap:3px;flex-shrink:0}
+.mast-ttl .stripe i{width:4px;height:25px;background:var(--red);display:block}
+.mast-ttl h2{font-size:clamp(22px,6vw,30px);font-weight:800;letter-spacing:-.04em;margin:0}
+.eqbox .eq{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.eqbox .chip{background:var(--panel2);border:1px solid var(--line2);font-weight:800;font-size:14px;padding:7px 13px;border-radius:9px}
+.eqbox .op{font-family:var(--mono);color:var(--muted);font-size:15px}
+.visbox{text-align:center}
+.vnum{font-family:var(--mono);font-weight:800;font-size:clamp(40px,12vw,62px);line-height:.95;letter-spacing:-.04em}
+.vscale{position:relative;height:10px;border-radius:6px;background:linear-gradient(90deg,var(--red),var(--amber),var(--green));margin:18px 2px 8px}
+.vmark{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;background:var(--text);border:3px solid var(--panel);
+transform:translate(-50%,-50%);transition:left .9s var(--eo);box-shadow:0 0 0 1px var(--text)}
+.visbox .verdict{font-size:clamp(20px,5.6vw,27px);font-weight:800;letter-spacing:-.03em;margin:14px 0 8px}
+.visbox .rsum{color:var(--soft);font-size:14.5px;line-height:1.6;margin:0 auto;max-width:26em}
+.blindbox{background:#050505}
+.blind-word{font-size:clamp(26px,7.6vw,38px);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin:2px 0 14px}
+.blind-word .hl{background:var(--red);color:#fff;padding:2px .14em}
+.blind-desc{color:var(--soft);font-size:14.5px;line-height:1.6;margin:0}
+.axcap{font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.5;margin:16px 0 0;border-left:2px solid var(--red);padding-left:10px}
+.bars{margin:0}
+.bar{display:flex;align-items:center;gap:13px;margin-bottom:12px}
+.bar:last-child{margin-bottom:0}
+.bar .nm{width:60px;font-size:13px;font-weight:700;color:var(--soft);flex-shrink:0}
+.bar .tk{flex:1;height:8px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar .bar .sc{font-family:var(--mono);font-size:11px;color:var(--muted);width:30px;text-align:right;flex-shrink:0}
+.srcrow{padding:14px 0;border-top:1px solid var(--line)}
+.srcrow:first-of-type{border-top:none;padding-top:0}
+.srcrow .sh{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--text);margin-bottom:6px}
+.srcrow .sq{font-family:var(--mono);font-size:13px;color:var(--soft);line-height:1.5;margin-bottom:10px;word-break:break-word}
+.srcrow .sa{display:flex;gap:8px}
+.srcrow .sa a,.srcrow .sa button{flex:1;text-align:center;border:1.5px solid var(--line2);border-radius:12px;padding:11px;
+font-size:13px;font-weight:700;color:var(--text);text-decoration:none;background:transparent;font-family:var(--sans);cursor:pointer;transition:.15s var(--eo)}
+.srcrow .sa a:hover,.srcrow .sa button:hover{border-color:var(--text)}
+.dose{display:flex;gap:11px;font-size:14px;line-height:1.55;color:var(--soft);padding:9px 0;border-top:1px solid var(--line)}
+.dose:first-of-type{border-top:none}
+.dose i{font-style:normal;flex:0 0 20px;font-family:var(--mono);font-weight:800;color:var(--green)}
+.dose b{color:var(--text)}
+.caution{font-size:14px;line-height:1.6;color:var(--soft)}
+.caution b{color:var(--red)}
+
+/* 되받아치기 */
+.talk{position:fixed;inset:0;background:rgba(5,5,5,.72);backdrop-filter:blur(3px);z-index:120;display:none;
+align-items:center;justify-content:center;padding:32px}
+.talk.on{display:flex;animation:fade .3s var(--eo)}
+.talk .b{max-width:420px;text-align:center}
+.talk .e{font-family:var(--mono);font-size:26px;font-weight:800;color:var(--red);margin-bottom:16px}
+.talk .t{font-size:17px;font-weight:700;line-height:1.75;margin-bottom:24px;letter-spacing:-.02em}
+@media(min-width:640px){.pv figure{flex:0 0 calc(33.333% - 5px)}.moods{grid-template-columns:1fr 1fr 1fr}}
+
+/* 좌우 편향 바 */
+.dbar{display:flex;align-items:center;gap:9px;margin-bottom:12px;font-size:12.5px}
+.dbar:last-child{margin-bottom:0}
+.dbar .ln{width:54px;text-align:right;color:var(--faint);flex-shrink:0;transition:color .3s}
+.dbar .rn{width:54px;color:var(--faint);flex-shrink:0;transition:color .3s}
+.dbar.L .ln,.dbar.R .rn{color:var(--text);font-weight:700}
+.dtk{flex:1;height:20px;position:relative}
+.dtk::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;border-radius:2px;background:rgba(255,255,255,.08);transform:translateY(-50%)}
+.dtk::after{content:"";position:absolute;left:50%;top:2px;bottom:2px;width:1px;background:var(--line2)}
+.dtk b{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;transform:translate(-50%,-50%);
+transition:left .7s var(--eo);box-shadow:0 0 0 3px var(--panel);z-index:2}
+.dtk s{position:absolute;top:50%;height:8px;border-radius:4px;transform:translateY(-50%);
+opacity:.26;transition:all .7s var(--eo);text-decoration:none;z-index:1}
+
+/* 키워드 카드 */
+.kw{border:1px solid var(--line2);border-radius:var(--r);padding:16px 15px;margin-bottom:11px;background:var(--panel2)}
+.kw:last-child{margin-bottom:0}
+.kw .kh{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:10px}
+.kw .kn{font-family:var(--mono);font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--text)}
+.kw .kd{font-size:11px;color:var(--muted)}
+.kw .kq{font-family:var(--mono);font-size:15px;color:var(--green);line-height:1.45;margin-bottom:13px;word-break:break-word;font-weight:600}
+.kw .ka{display:flex;gap:8px}
+.kw .ka a{flex:1.4;text-align:center;background:var(--text);color:#0C0B0A;border-radius:12px;padding:13px;
+font-size:14px;font-weight:800;text-decoration:none;transition:.15s var(--eo)}
+.kw .ka a:hover{background:var(--green);color:#04140D}
+.kw .ka button{flex:1;text-align:center;border:1.5px solid var(--line2);border-radius:12px;padding:13px;
+font-size:13px;font-weight:700;color:var(--text);background:transparent;font-family:var(--sans);cursor:pointer;transition:.15s var(--eo)}
+.kw .ka button:hover{border-color:var(--text)}
+.plus{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.plus .ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.plus .ph::before{content:"";width:13px;height:11px;background:repeating-linear-gradient(90deg,var(--red) 0 2.5px,transparent 2.5px 4.5px)}
+
+/* ═══ 시력검사 원문 이식 · 공유 블록 ═══ */
+.rxbox h3{font-size:clamp(20px,5.4vw,25px);font-weight:800;letter-spacing:-.03em;margin:0 0 10px;line-height:1.28;color:var(--text)}
+.rxbox .intro-p{color:var(--soft);font-size:14px;line-height:1.6;margin:0 0 14px}
+.rxbox .btn{margin-top:4px}
+.cap{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--red);
+border:1px solid var(--red);border-radius:20px;padding:5px 12px;margin:0 0 18px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:7px}
+.field label .opt-tag{color:var(--faint);font-weight:600}
+.field input,.field textarea{width:100%;padding:14px 15px;border:1.5px solid var(--line2);border-radius:12px;
+background:var(--panel2);font-family:var(--sans);font-size:15px;color:var(--text);transition:border-color .15s var(--eo)}
+.field input::placeholder,.field textarea::placeholder{color:var(--faint)}
+.field textarea{resize:vertical;min-height:76px;line-height:1.5}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.field input.bad{border-color:var(--red)}
+.linkrow{display:flex;gap:8px;margin-bottom:9px}
+.linkrow input{flex:1}
+.linkrow .del{flex-shrink:0;width:46px;border:1.5px solid var(--line2);border-radius:12px;background:var(--panel2);
+color:var(--muted);font-size:18px;cursor:pointer;font-family:var(--sans)}
+.addlink{background:none;border:1px dashed var(--line2);border-radius:11px;color:var(--muted);font-size:13px;
+font-weight:600;padding:11px 0;width:100%;cursor:pointer;font-family:var(--sans);transition:.15s var(--eo)}
+.addlink:hover{border-color:var(--green);color:var(--green)}
+.err{color:var(--red);font-size:12.5px;margin:10px 0;display:none;line-height:1.5}
+.err.on{display:block}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:2px}
+.opts button{padding:13px 12px;border-radius:12px;border:1.5px solid var(--line2);background:var(--panel);
+font-weight:700;font-size:13.5px;cursor:pointer;font-family:var(--sans);color:var(--soft);text-align:left;
+line-height:1.35;transition:.15s var(--eo)}
+.opts button em{display:block;font-style:normal;font-size:11px;font-weight:600;color:var(--faint);margin-top:4px}
+.opts button:active{transform:scale(.97)}
+.opts button.sel{border-color:var(--green);color:var(--green);background:rgba(27,174,114,.1)}
+.opts button.sel em{color:var(--green);opacity:.75}
+.agreerow{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--soft);line-height:1.55;margin:4px 0 10px}
+.agreerow input{margin-top:2px;accent-color:var(--green);width:16px;height:16px;flex-shrink:0}
+.remind .remind-t{font-size:15.5px;font-weight:800;color:var(--text);margin-bottom:6px;letter-spacing:-.01em}
+.remind .remind-p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.colobox{padding:0;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:stretch}
+.colo-txt{padding:16px 15px;border-right:1px solid var(--line2);display:flex;flex-direction:column;justify-content:center}
+.colo-txt .cl-t{font-weight:800;font-size:14px;color:var(--text);margin-bottom:5px;letter-spacing:-.01em}
+.colo-txt .cl-s{font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:.08em;line-height:1.6}
+.colo-qr{width:104px;padding:10px;display:flex;align-items:center;justify-content:center;background:#fff;cursor:pointer}
+.colo-qr svg{width:100%;height:auto;display:block}
+.savebar{max-width:var(--maxw);margin:16px auto 0;padding:0 20px}
+.savebar .btn{font-size:14px}
+.foot{padding:40px 0 64px;text-align:center;color:var(--faint);font-size:12px}
+.foot .sig{font-family:var(--mono);font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.02em}
+.foot .copy{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.05em;margin-top:8px}
+.reset{background:none;border:none;color:var(--faint);font-size:11.5px;text-decoration:underline;cursor:pointer;
+font-family:var(--sans);margin-top:16px}
+.veye{display:flex;justify-content:center}
+/* 코드 스타일 키워드 */
+.kw .kq{font-family:var(--mono);font-size:14.5px;color:var(--text);line-height:1.5;margin-bottom:13px;
+word-break:break-word;background:#050505;border:1px solid var(--line2);border-radius:8px;padding:11px 12px}
+.kw .kq::before{content:"$ ";color:var(--faint)}
+
+/* 스와이프 */
+.swwrap{margin-bottom:8px}
+.swcount{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center;margin-bottom:11px;letter-spacing:.1em}
+.swcard{position:relative;border:1px solid var(--line2);border-radius:15px;overflow:hidden;background:var(--panel2);
+touch-action:pan-y;user-select:none;transition:transform .28s var(--eo),opacity .28s var(--eo)}
+.swcard img{width:100%;display:block}
+.swcard.go{opacity:0}
+.swtag{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:26px;font-weight:800;
+padding:4px 12px;border-radius:8px;opacity:0;transition:opacity .12s}
+.swtag.on{opacity:1}
+.swbtns{display:flex;gap:11px;margin-top:14px}
+.swb{flex:1;padding:16px 0;border-radius:14px;border:1.5px solid var(--line2);background:var(--panel);
+font-size:20px;font-weight:800;cursor:pointer;font-family:var(--sans);color:var(--soft);transition:.15s var(--eo)}
+.swb:active{transform:scale(.96)}
+.swb.x:hover{border-color:var(--red);color:var(--red)}
+.swb.t:hover{border-color:var(--amber);color:var(--amber)}
+.swb.o:hover{border-color:var(--green);color:var(--green)}
+.swhint{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-align:center;margin-top:11px;letter-spacing:.06em}
+#skipSw{background:none;border:none;color:var(--muted);font-size:11.5px;text-decoration:underline;cursor:pointer;font-family:var(--sans)}
+
+/* 브랜드 메인 컬러 박스 */
+.brandbox{border:1.5px solid var(--line2);border-radius:15px;background:var(--panel);padding:20px 18px;margin-bottom:6px;transition:border-color .2s var(--eo)}
+.brandbox.on{border-color:var(--green)}
+.bb-h{font-size:16px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.bb-p{font-size:13px;color:var(--muted);line-height:1.55;margin:0 0 15px}
+.bb-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.bb-b{padding:14px 13px;border-radius:12px;border:1.5px solid var(--line2);background:var(--panel2);
+font-weight:700;font-size:14px;cursor:pointer;font-family:var(--sans);color:var(--soft);text-align:left;
+line-height:1.35;transition:.15s var(--eo)}
+.bb-b em{display:block;font-style:normal;font-size:11px;font-weight:600;color:var(--faint);margin-top:4px}
+.bb-b:hover{border-color:var(--text)}
+.bb-b:active{transform:scale(.97)}
+.bb-b.sel{border-color:var(--green);color:var(--green);background:rgba(27,174,114,.1)}
+.bb-b.sel em{color:var(--green);opacity:.75}
+.bb-pick{display:none;margin-top:15px;padding-top:15px;border-top:1px solid var(--line)}
+.bb-pick.on{display:block;animation:fade .3s var(--eo)}
+.bb-row{display:flex;gap:9px}
+.bb-sw{flex:0 0 auto;position:relative;display:flex;align-items:center;gap:8px;border:1.5px solid var(--line2);
+border-radius:12px;background:var(--panel2);padding:0 14px 0 10px;cursor:pointer;transition:border-color .15s var(--eo)}
+.bb-sw:hover{border-color:var(--green)}
+.bb-sw span{font-size:12.5px;font-weight:700;color:var(--soft);white-space:nowrap}
+.bb-sw input[type=color]{width:34px;height:34px;padding:2px;border:1px solid var(--line2);border-radius:8px;
+background:var(--panel2);cursor:pointer}
+.bb-row input[type=text]{flex:1;padding:14px 15px;border:1.5px solid var(--line2);border-radius:12px;
+background:var(--panel2);font-family:var(--mono);font-size:15px;color:var(--text);text-transform:uppercase}
+.bb-row input[type=text]:focus{outline:none;border-color:var(--green)}
+.bb-row input[type=text]::placeholder{color:var(--faint);text-transform:none}
+.bb-tip{font-family:var(--mono);font-size:11px;color:var(--faint);line-height:1.6;margin-top:11px;
+border-left:2px solid var(--green);padding-left:10px}
+.bb-tip b{color:var(--muted)}
+.bb-res{font-size:13px;color:var(--soft);line-height:1.6;margin-top:11px}
+.bb-res b{color:var(--green)}
+
+.etcwrap{margin-top:11px;display:none}
+.etcwrap.show{display:block;animation:fade .3s var(--eo)}
+.etcwrap input{width:100%;padding:15px 16px;border:1.5px solid var(--red);border-radius:14px;
+background:var(--panel2);font-family:var(--sans);font-size:15px;color:var(--text)}
+.etcwrap input::placeholder{color:var(--faint)}
+.etcwrap input:focus{outline:none}
+.card.lock::after{content:"\1F512";position:absolute;top:13px;right:14px;font-size:12px;opacity:.6}
+.swov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;
+pointer-events:none;transition:opacity .14s var(--eo)}
+.swov.on{opacity:1}
+.swov span{font-family:var(--mono);font-size:clamp(56px,17vw,86px);font-weight:800;line-height:1;
+color:#fff;text-shadow:0 4px 26px rgba(0,0,0,.55)}
+.swundo{display:flex;gap:10px;justify-content:center;margin-top:13px}
+.swundo button{background:none;border:none;color:var(--faint);font-size:11.5px;text-decoration:underline;
+cursor:pointer;font-family:var(--sans);padding:4px 8px}
+.swundo button:hover{color:var(--soft)}
+.swundo button:disabled{opacity:.32;cursor:default;text-decoration:none}
+.bb-lbl{font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:8px}
+.bb-lbl .opt-tag{color:var(--faint);font-weight:600}
+.dbar{gap:13px}
+.dtk{margin:0 3px}
+</style></head><body>
+
+<div class="top" id="topbar"><div class="in">
+  <span class="brand"><i class="eye"></i>눈맞춤</span>
+  <span class="track"><span class="fill" id="fill"></span></span>
+  <span class="cnt" id="cnt">0 / 7</span>
+</div></div>
+
+<!-- 0 인트로 -->
+<section class="screen active" id="s0"><div class="wrap">
+ <div class="poster">
+  <div class="p-top"><span class="pt-l">EST. 2021</span><span class="pt-c">Brand Eye-Fit</span><span class="pt-r">무료</span></div>
+  <div class="p-hero">
+   <div class="p-brand">Open Your Brand</div>
+   <h1>내 디자인<br>눈부터 맞추자</h1>
+   <svg class="stamp" viewBox="0 0 100 100" aria-hidden="true">
+    <defs><path id="sc" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
+    <circle class="sc" cx="50" cy="50" r="46"/>
+    <text><textPath href="#sc" startOffset="0">눈 뜨면 · 눈에 띈다 · 레퍼런스 · O_o · </textPath></text>
+    <circle class="pupil" cx="50" cy="50" r="6"/></svg>
+  </div>
+  <div class="p-spec"><div class="specbar"></div></div>
+  <div class="p-out">
+   <div class="ocell dg"><span class="on">OUTPUT 01</span><span class="ok">무드</span></div>
+   <div class="ocell dg"><span class="on">OUTPUT 02</span><span class="ok">키워드</span></div>
+   <div class="ocell fc"><span class="on">OUTPUT 03</span><span class="ok">처방전</span></div></div>
+  <button class="p-cta" id="start"><span>맞춰보기</span><span class="arw">&#8594;</span></button>
+  <div class="p-code"><div class="barcode"></div><span class="cd">6 STEPS · 3 SOURCES</span></div>
+  <div class="marquee"><div class="mq-track"><span><b>O_o</b>//<b>디자인 눈맞춤</b>//<b>BRAND EYE-FIT</b>//<b>눈 뜨면, 눈에 띈다</b>//<b>O_o</b>//<b>디자인 눈맞춤</b>//<b>BRAND EYE-FIT</b>//<b>눈 뜨면, 눈에 띈다</b>//</span></div></div>
+ </div>
+ <p class="oresume" id="resume" style="display:none">보던 눈맞춤이 있습니다 — <button id="rsm">이어서 보기</button></p>
+ <div class="hfoot">브랜드를 위한 레퍼런스 도구 · 무료 · 로그인 없음</div>
+</div></section>
+
+<!-- 1 업종 -->
+<section class="screen" id="s1"><div class="wrap pick">
+ <div class="tag">STEP 1 · 업종</div>
+ <h2>어떤 브랜드의 레퍼런스인가요?</h2>
+ <div class="sub">업종에 따라 통하는 결이 다릅니다. 고르시면 검색어가 그 업종 말로 바뀝니다.</div>
+ <div class="grid" id="gSector"></div>
+ <div class="etcwrap" id="secEtcWrap"><input type="text" id="secEtc" placeholder="업종을 직접 입력해 주세요" maxlength="20" /></div>
+ <div class="pickbar"><span class="hintg" id="h1">하나만 골라주세요</span><button class="btn" id="n1" disabled>다음 →</button></div>
+ <div class="backlink"><button data-go="0">← 처음으로</button></div>
+</div></section>
+
+<!-- 2 목표 -->
+<section class="screen" id="s2"><div class="wrap pick">
+ <div class="tag">STEP 2 · 목표</div>
+ <h2>어디에서 눈에 띄고 싶으세요?</h2>
+ <div class="sub">여러 개 골라도 됩니다. 고른 만큼 처방이 정확해집니다.</div>
+ <div class="grid" id="gGoal"></div>
+ <div class="etcwrap" id="goalEtcWrap"><input type="text" id="goalEtc" placeholder="목표를 직접 입력해 주세요" maxlength="24" /></div>
+ <div class="pickbar"><span class="hintg" id="h2">최소 하나 골라주세요</span><button class="btn" id="n2" disabled>다음 →</button></div>
+ <div class="backlink"><button data-go="1">← 업종 다시</button></div>
+</div></section>
+
+<!-- 3 쓰임 -->
+<section class="screen" id="s3"><div class="wrap pick">
+ <div class="tag">STEP 3 · 쓰임</div>
+ <h2>이 레퍼런스, 어디에 쓰세요?</h2>
+ <div class="sub">쓰임에 따라 찾을 곳과 검색어가 달라집니다.</div>
+ <div class="grid" id="gSvc"></div>
+ <div class="subhead">곧 열립니다 · <b>Coming</b></div>
+ <div class="grid" id="gLock"></div>
+ <div id="pageWrap" style="display:none">
+  <div class="subhead">특정 페이지만 · <b>선택</b></div>
+  <div class="grid" id="gPage"></div>
+  <div class="note g" id="pageQ" style="display:none"></div></div>
+ <div class="pickbar"><span class="hintg" id="h3">하나만 골라주세요</span><button class="btn" id="n3" disabled>다음 →</button></div>
+ <div class="backlink"><button data-go="2">← 목표 다시</button></div>
+</div></section>
+
+<!-- 4 스와이프 -->
+<section class="screen" id="s4"><div class="wrap pick">
+ <div class="tag">STEP 4 · 취향</div>
+ <h2>이건 어떠세요?</h2>
+ <div class="sub">눈띄고가 만든 것들입니다. 1초만 보고 넘기세요. 12장이면 결이 잡힙니다.</div>
+ <div class="swwrap">
+  <div class="swcount"><span id="swNo">1</span> / 12</div>
+  <div class="swcard" id="swCard"><img id="swImg" alt="" /><div class="swov" id="swOv"><span id="swMk"></span></div></div>
+  <div class="swbtns">
+   <button type="button" class="swb x" data-v="-1" aria-label="별로">✕</button>
+   <button type="button" class="swb t" data-v="0" aria-label="보류">△</button>
+   <button type="button" class="swb o" data-v="1" aria-label="좋음">○</button></div>
+  <div class="swhint">✕ 별로 &nbsp;·&nbsp; △ 보류 &nbsp;·&nbsp; ○ 좋음</div>
+  <div class="swundo"><button type="button" id="swBack">← 이전 것 다시</button><button type="button" id="swReset">전체 다시하기</button></div>
+ </div>
+ <div class="pickbar"><span class="hintg" id="h4">0 / 12</span><button class="btn" id="n4" disabled>다음 →</button></div>
+ <div class="backlink"><button data-go="3">← 쓰임 다시</button><br><button id="skipSw" style="margin-top:8px">직접 맞출게요 →</button></div>
+</div></section>
+
+<!-- 5 축 조정 -->
+<section class="screen" id="s5"><div class="wrap pick">
+ <div class="tag">STEP 5 · 좌표</div>
+ <h2 id="axTitle">이렇게 잡혔습니다</h2>
+ <div class="sub" id="axSub">스와이프한 결과입니다. 어색한 축이 있으면 밀어서 고치세요.</div>
+ <div class="pvbox"><div class="pv" id="pv"></div></div>
+ <div id="axes"></div>
+ <div class="pickbar"><span class="hintg" id="h5">0 / 7 축</span><button class="btn" id="n5" disabled>다음 →</button></div>
+ <div class="backlink"><button data-go="4">← 스와이프 다시</button></div>
+</div></section>
+
+<!-- 6 무드 -->
+<section class="screen" id="s6"><div class="wrap pick">
+ <div class="tag">STEP 6 · 무드</div>
+ <h2>이 결에 가까운 건</h2>
+ <div class="sub">최대 2개. 초록으로 밝은 게 방금 맞추신 좌표와 가까운 결입니다.</div>
+ <div class="moods" id="gMood"></div>
+ <div class="free"><div class="h">원하는 결이 없나요?</div>
+  <input type="text" id="freeIn" placeholder="한 단어로 (예: 몽환 · 청량 · 러프 · 고급)">
+  <div class="sugg" id="sugg"></div></div>
+ <div class="pickbar"><span class="hintg" id="h6">0 / 2</span><button class="btn" id="n6" disabled>다음 →</button></div>
+ <div class="backlink"><button data-go="5">← 결 다시</button></div>
+</div></section>
+
+<!-- 7 컬러 -->
+<section class="screen" id="s7"><div class="wrap pick">
+ <div class="tag">STEP 7 · 컬러</div>
+ <h2>색은 어느 쪽인가요</h2>
+ <div class="sub">배경은 지배하고, 포인트는 찌릅니다. 포인트를 안 쓰는 것도 답입니다.</div>
+
+ <div class="brandbox" id="brandBox">
+  <div class="bb-h">브랜드 컬러가 있나요?</div>
+  <p class="bb-p">이미 정해진 색이 있으면, 거기서 시작하는 게 맞습니다.<br>배경과 포인트를 따로 넣으실 수 있습니다.</p>
+  <div class="bb-opts">
+   <button type="button" class="bb-b" data-v="y">있습니다<em>직접 넣을게요</em></button>
+   <button type="button" class="bb-b" data-v="n">아직 없어요<em>골라볼게요</em></button></div>
+  <div class="bb-pick" id="bbPick">
+   <div class="bb-lbl">배경으로 쓸 색</div>
+   <div class="bb-row">
+    <label class="bb-sw" for="hexBgPick"><input type="color" id="hexBgPick" value="#EDE7DA" /><span>색상판</span></label>
+    <input type="text" id="hexBg" placeholder="#EDE7DA" maxlength="7" autocomplete="off" /></div>
+   <div class="bb-res" id="hexBgSug"></div>
+   <div class="bb-lbl" style="margin-top:16px">포인트로 쓸 색 <span class="opt-tag">· 없으면 비워두세요</span></div>
+   <div class="bb-row">
+    <label class="bb-sw" for="hexPtPick"><input type="color" id="hexPtPick" value="#DA3A33" /><span>색상판</span></label>
+    <input type="text" id="hexPt" placeholder="#DA3A33" maxlength="7" autocomplete="off" /></div>
+   <div class="bb-res" id="hexPtSug"></div>
+   <div class="bb-tip">◐ <b>색상판</b>을 누르면 스펙트럼에서 직접 고를 수 있습니다. 코드(#000000)를 붙여넣어도 됩니다.</div>
+  </div>
+ </div>
+
+ <div class="subhead">배경 · <b>지배색</b></div>
+ <div class="sw" id="gBg"></div>
+ <div class="subhead">포인트 · <b>찌르는 색</b></div>
+ <div class="sw" id="gPoint"></div>
+ <div class="pickbar"><span class="hintg" id="h7">배경 · 포인트</span><button class="btn green" id="n7" disabled>처방전 받기 →</button></div>
+ <div class="backlink"><button data-go="6">← 무드 다시</button></div>
+</div></section>
+
+<!-- 8 검안 중 -->
+<section class="screen" id="s8"><div class="wrap"><div class="scan">
+ <div class="orb"><b></b><i></i><u></u></div>
+ <div class="st" id="scanT">결을 맞추는 중…</div></div></div></section>
+
+<!-- 9 결과지 -->
+<section class="screen" id="s9"><div class="wrap"><div class="result">
+ <div class="rframe" id="sheet">
+
+  <div class="rbox mast">
+   <div class="mast-bar"><span class="mh-no" id="rNo">레퍼런스 처방전</span><span id="rDate"></span></div>
+   <div class="mast-ttl"><span class="stripe"><i></i><i></i><i></i></span><h2>레퍼런스 처방전</h2></div></div>
+
+  <div class="rbox eqbox"><div class="rlbl">검사 대상</div><div class="eq" id="rEq"></div></div>
+
+  <div class="rbox accent-red visbox"><div class="rlbl red">Output 01 · 무드</div>
+   <div class="vnum" id="rNum">0.0</div>
+   <div class="veye" id="rEye"></div>
+   <div class="vscale"><span class="vmark" id="rMark" style="left:0%"></span></div>
+   <div class="verdict" id="rVerdict"></div>
+   <div class="rsum" id="rMood"></div>
+   <div class="plus"><div class="ph">＋ 맹점 · Blind Spot</div>
+    <div class="blind-word" id="rBlind" style="font-size:clamp(22px,6.4vw,30px);margin:0 0 10px"></div>
+    <div class="blind-desc" id="rBlindD" style="font-size:13.5px"></div></div></div>
+
+  <div class="rbox"><div class="rlbl">축별 좌표 · 7 Axis</div>
+   <div id="rAx"></div>
+   <div class="axcap">가운데선에서 멀수록 결이 뚜렷합니다. 전부 가운데면, 아무 데도 아니구요.</div></div>
+
+  <div class="rbox accent-red"><div class="rlbl red">Output 02 · 키워드</div>
+   <div class="rsum" style="text-align:left;margin:0 0 14px;font-size:13.5px">그대로 복사해 붙여 넣으시면 됩니다. 소스마다 통하는 말이 달라서, 셋 다 다르게 짰습니다.</div>
+   <div id="rSrc"></div></div>
+
+  <div class="rbox accent-green"><div class="rlbl green">Output 03 · 처방전 · 쓰는 법</div>
+   <div class="dose"><i>01</i><span>위 키워드를 그대로 복사해 붙여 넣으세요.</span></div>
+   <div class="dose"><i>02</i><span>눈에 걸리는 컷 <b>6~9장</b>만 저장하세요. 더 모으면 흐려집니다.</span></div>
+   <div class="dose"><i>03</i><span>각 컷이 왜 좋은지 <b>컬러 · 구도 · 무드 · 타이포</b> 중 하나로 적어두세요.</span></div>
+   <div class="dose"><i>04</i><span id="dose04"></span></div>
+   <div class="axcap" style="margin-top:15px">레퍼런스는 거점이지, 도착지가 아닙니다. 6개월이 지나면 다시 재보세요.</div></div>
+
+  <div class="rbox rxbox accent-green" id="formBox">
+   <div class="rlbl green">디자인 소견 신청</div>
+   <h3>소견은, 직접 열어봐야 나옵니다.</h3>
+   <p class="intro-p">링크만 남겨주시면, 실제로 열어보고 <b>디자인 소견서 한 장</b>을 보내드립니다.</p>
+   <span class="cap">◔ 소견서는 주 5장만 씁니다</span>
+   <div class="field"><label>브랜드명</label><input type="text" id="fBrand" placeholder="예) 눈띄고" autocomplete="off" /></div>
+   <div class="field"><label>성함</label><input type="text" id="fName" placeholder="예) 김눈뜸" autocomplete="off" /></div>
+   <div class="field">
+    <label>브랜드 링크 <span class="opt-tag">· 자사몰·인스타 등, 여러 개 가능</span></label>
+    <div id="linkWrap">
+     <div class="linkrow"><input type="url" class="flink" placeholder="자사몰 (예: nunddigo.com)" /></div>
+     <div class="linkrow"><input type="url" class="flink" placeholder="인스타 (예: @nunddigo)" /></div>
+    </div>
+    <button class="addlink" id="addLink">+ 링크 추가</button></div>
+   <div class="field"><label>소견 받을 디자인이 있나요 <span class="opt-tag">· 선택</span></label>
+    <input type="url" id="fBoard" placeholder="구글 드라이브 · 핀터레스트 보드 · 노션 등 링크" autocomplete="off" />
+    <div class="note" style="margin-top:9px">이미 만든 자료나 모아둔 레퍼런스가 있으면 링크만 주세요. 없어도 괜찮습니다.</div></div>
+   <div class="agreerow" style="margin:0 0 13px"><input type="checkbox" id="fGuide" /><label for="fGuide">레퍼런스 모으고 정리하는 법도 함께 보내주세요. <span class="opt-tag">· 무료</span></label></div>
+   <div class="field"><label>회신받을 이메일</label><input type="email" id="fEmail" placeholder="name@example.com" autocomplete="off" inputmode="email" /></div>
+   <div class="field"><label>이 문서를 누가 받나요</label><div class="opts" id="fWho">
+    <button type="button" data-v="MD·바이어">MD · 바이어<em>플랫폼 입점 심사</em></button><button type="button" data-v="투자자">투자자<em>IR · 시드</em></button>
+    <button type="button" data-v="파트너·유통">파트너 · 유통<em>제휴 · 납품</em></button><button type="button" data-v="아직 미정">아직 미정<em>범용으로</em></button></div></div>
+   <div class="field"><label>지금 어디까지 와 있나요</label><div class="opts" id="fStage">
+    <button type="button" data-v="시작 전">아직 시작 전<em>뭘 준비할지 모름</em></button><button type="button" data-v="자료 수집">자료는 모았음<em>사진·숫자 있음</em></button>
+    <button type="button" data-v="초안 있음">초안이 있음<em>고치고 싶음</em></button><button type="button" data-v="반응 없음">보냈는데 반응 없음<em>이유를 모름</em></button></div></div>
+   <div class="field"><label>AI나 템플릿으로 만들어보셨나요 <span class="opt-tag">· 선택</span></label><div class="opts" id="fAI">
+    <button type="button" data-v="있음">해봤습니다<em>결과가 아쉬웠음</em></button><button type="button" data-v="없음">안 해봤습니다</button></div></div>
+   <div class="field"><label>눈띄고가 꼭 알아야 할 점 <span class="opt-tag">· 선택</span></label><textarea id="fNote" placeholder="지금 가장 걸리는 것, 목표 시점, 예산 감 등 — 있으면 소견이 정확해집니다."></textarea></div>
+   <div class="agreerow"><input type="checkbox" id="fAgree" /><label for="fAgree">소견서 발송을 위한 개인정보 수집·이용에 동의합니다. 목적 달성 후 지체 없이 파기합니다.</label></div>
+   <input type="text" id="botcheck" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
+   <div class="err" id="err"></div>
+   <button class="btn green full" id="fSend">이 결과로 소견 신청하기 &nbsp;&#8594;</button></div>
+
+  <div class="rbox rxbox accent-green" id="doneBox" style="display:none;text-align:center">
+   <div class="rlbl green" style="justify-content:center">접수 완료</div>
+   <h3 style="margin-bottom:8px">접수됐습니다.</h3>
+   <p class="intro-p">디자인 소견서는 <b>영업일 기준 하루 안에</b> 적어주신 메일로 갑니다.<br>급하시면 카카오로 처방전 번호를 알려주세요.</p>
+   <button class="btn full" id="kko">카카오로 문의 &nbsp;&#8594;</button></div>
+
+  <div class="rbox remind"><div class="rlbl">다음 검사 · Follow-up</div>
+   <div class="remind-t">6개월 뒤, 다시 맞춰보세요.</div>
+   <p class="remind-p">시장이 바뀝니다. 그때 비어 있던 자리가 차 있을 수도 있구요.</p></div>
+
+  <div class="rbox colobox">
+   <div class="colo-txt"><div class="cl-t">눈띄고 — 브랜드를 눈에 띄게</div>
+    <div class="cl-s" id="coloLine">BRAND EYE-FIT · O_o</div></div>
+   <a class="colo-qr" href="http://pf.kakao.com/_emxgvK" target="_blank" rel="noopener"><svg style="width:100%;height:auto;display:block"   viewBox="0 0 282 282" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="282" height="282" fill="white"/>
+<path d="M16 16H24.6207V24.6207H16V16ZM24.6207 16H33.2414V24.6207H24.6207V16ZM33.2414 16H41.8621V24.6207H33.2414V16ZM41.8621 16H50.4828V24.6207H41.8621V16ZM50.4828 16H59.1034V24.6207H50.4828V16ZM59.1034 16H67.7241V24.6207H59.1034V16ZM67.7241 16H76.3448V24.6207H67.7241V16ZM93.5862 16H102.207V24.6207H93.5862V16ZM102.207 16H110.828V24.6207H102.207V16ZM136.69 16H145.31V24.6207H136.69V16ZM153.931 16H162.552V24.6207H153.931V16ZM171.172 16H179.793V24.6207H171.172V16ZM179.793 16H188.414V24.6207H179.793V16ZM188.414 16H197.034V24.6207H188.414V16ZM205.655 16H214.276V24.6207H205.655V16ZM214.276 16H222.897V24.6207H214.276V16ZM222.897 16H231.517V24.6207H222.897V16ZM231.517 16H240.138V24.6207H231.517V16ZM240.138 16H248.759V24.6207H240.138V16ZM248.759 16H257.379V24.6207H248.759V16ZM257.379 16H266V24.6207H257.379V16ZM16 24.6207H24.6207V33.2414H16V24.6207ZM67.7241 24.6207H76.3448V33.2414H67.7241V24.6207ZM84.9655 24.6207H93.5862V33.2414H84.9655V24.6207ZM102.207 24.6207H110.828V33.2414H102.207V24.6207ZM119.448 24.6207H128.069V33.2414H119.448V24.6207ZM153.931 24.6207H162.552V33.2414H153.931V24.6207ZM162.552 24.6207H171.172V33.2414H162.552V24.6207ZM171.172 24.6207H179.793V33.2414H171.172V24.6207ZM179.793 24.6207H188.414V33.2414H179.793V24.6207ZM205.655 24.6207H214.276V33.2414H205.655V24.6207ZM257.379 24.6207H266V33.2414H257.379V24.6207ZM16 33.2414H24.6207V41.8621H16V33.2414ZM33.2414 33.2414H41.8621V41.8621H33.2414V33.2414ZM41.8621 33.2414H50.4828V41.8621H41.8621V33.2414ZM50.4828 33.2414H59.1034V41.8621H50.4828V33.2414ZM67.7241 33.2414H76.3448V41.8621H67.7241V33.2414ZM93.5862 33.2414H102.207V41.8621H93.5862V33.2414ZM119.448 33.2414H128.069V41.8621H119.448V33.2414ZM128.069 33.2414H136.69V41.8621H128.069V33.2414ZM136.69 33.2414H145.31V41.8621H136.69V33.2414ZM153.931 33.2414H162.552V41.8621H153.931V33.2414ZM205.655 33.2414H214.276V41.8621H205.655V33.2414ZM222.897 33.2414H231.517V41.8621H222.897V33.2414ZM231.517 33.2414H240.138V41.8621H231.517V33.2414ZM240.138 33.2414H248.759V41.8621H240.138V33.2414ZM257.379 33.2414H266V41.8621H257.379V33.2414ZM16 41.8621H24.6207V50.4828H16V41.8621ZM33.2414 41.8621H41.8621V50.4828H33.2414V41.8621ZM41.8621 41.8621H50.4828V50.4828H41.8621V41.8621ZM50.4828 41.8621H59.1034V50.4828H50.4828V41.8621ZM67.7241 41.8621H76.3448V50.4828H67.7241V41.8621ZM84.9655 41.8621H93.5862V50.4828H84.9655V41.8621ZM93.5862 41.8621H102.207V50.4828H93.5862V41.8621ZM102.207 41.8621H110.828V50.4828H102.207V41.8621ZM162.552 41.8621H171.172V50.4828H162.552V41.8621ZM179.793 41.8621H188.414V50.4828H179.793V41.8621ZM188.414 41.8621H197.034V50.4828H188.414V41.8621ZM205.655 41.8621H214.276V50.4828H205.655V41.8621ZM222.897 41.8621H231.517V50.4828H222.897V41.8621ZM231.517 41.8621H240.138V50.4828H231.517V41.8621ZM240.138 41.8621H248.759V50.4828H240.138V41.8621ZM257.379 41.8621H266V50.4828H257.379V41.8621ZM16 50.4828H24.6207V59.1034H16V50.4828ZM33.2414 50.4828H41.8621V59.1034H33.2414V50.4828ZM41.8621 50.4828H50.4828V59.1034H41.8621V50.4828ZM50.4828 50.4828H59.1034V59.1034H50.4828V50.4828ZM67.7241 50.4828H76.3448V59.1034H67.7241V50.4828ZM84.9655 50.4828H93.5862V59.1034H84.9655V50.4828ZM136.69 50.4828H145.31V59.1034H136.69V50.4828ZM153.931 50.4828H162.552V59.1034H153.931V50.4828ZM171.172 50.4828H179.793V59.1034H171.172V50.4828ZM179.793 50.4828H188.414V59.1034H179.793V50.4828ZM205.655 50.4828H214.276V59.1034H205.655V50.4828ZM222.897 50.4828H231.517V59.1034H222.897V50.4828ZM231.517 50.4828H240.138V59.1034H231.517V50.4828ZM240.138 50.4828H248.759V59.1034H240.138V50.4828ZM257.379 50.4828H266V59.1034H257.379V50.4828ZM16 59.1034H24.6207V67.7241H16V59.1034ZM67.7241 59.1034H76.3448V67.7241H67.7241V59.1034ZM93.5862 59.1034H102.207V67.7241H93.5862V59.1034ZM102.207 59.1034H110.828V67.7241H102.207V59.1034ZM110.828 59.1034H119.448V67.7241H110.828V59.1034ZM128.069 59.1034H136.69V67.7241H128.069V59.1034ZM136.69 59.1034H145.31V67.7241H136.69V59.1034ZM205.655 59.1034H214.276V67.7241H205.655V59.1034ZM257.379 59.1034H266V67.7241H257.379V59.1034ZM16 67.7241H24.6207V76.3448H16V67.7241ZM24.6207 67.7241H33.2414V76.3448H24.6207V67.7241ZM33.2414 67.7241H41.8621V76.3448H33.2414V67.7241ZM41.8621 67.7241H50.4828V76.3448H41.8621V67.7241ZM50.4828 67.7241H59.1034V76.3448H50.4828V67.7241ZM59.1034 67.7241H67.7241V76.3448H59.1034V67.7241ZM67.7241 67.7241H76.3448V76.3448H67.7241V67.7241ZM84.9655 67.7241H93.5862V76.3448H84.9655V67.7241ZM102.207 67.7241H110.828V76.3448H102.207V67.7241ZM119.448 67.7241H128.069V76.3448H119.448V67.7241ZM136.69 67.7241H145.31V76.3448H136.69V67.7241ZM153.931 67.7241H162.552V76.3448H153.931V67.7241ZM171.172 67.7241H179.793V76.3448H171.172V67.7241ZM188.414 67.7241H197.034V76.3448H188.414V67.7241ZM205.655 67.7241H214.276V76.3448H205.655V67.7241ZM214.276 67.7241H222.897V76.3448H214.276V67.7241ZM222.897 67.7241H231.517V76.3448H222.897V67.7241ZM231.517 67.7241H240.138V76.3448H231.517V67.7241ZM240.138 67.7241H248.759V76.3448H240.138V67.7241ZM248.759 67.7241H257.379V76.3448H248.759V67.7241ZM257.379 67.7241H266V76.3448H257.379V67.7241ZM84.9655 76.3448H93.5862V84.9655H84.9655V76.3448ZM93.5862 76.3448H102.207V84.9655H93.5862V76.3448ZM102.207 76.3448H110.828V84.9655H102.207V76.3448ZM145.31 76.3448H153.931V84.9655H145.31V76.3448ZM153.931 76.3448H162.552V84.9655H153.931V76.3448ZM162.552 76.3448H171.172V84.9655H162.552V76.3448ZM171.172 76.3448H179.793V84.9655H171.172V76.3448ZM24.6207 84.9655H33.2414V93.5862H24.6207V84.9655ZM41.8621 84.9655H50.4828V93.5862H41.8621V84.9655ZM50.4828 84.9655H59.1034V93.5862H50.4828V84.9655ZM59.1034 84.9655H67.7241V93.5862H59.1034V84.9655ZM67.7241 84.9655H76.3448V93.5862H67.7241V84.9655ZM84.9655 84.9655H93.5862V93.5862H84.9655V84.9655ZM93.5862 84.9655H102.207V93.5862H93.5862V84.9655ZM110.828 84.9655H119.448V93.5862H110.828V84.9655ZM119.448 84.9655H128.069V93.5862H119.448V84.9655ZM145.31 84.9655H153.931V93.5862H145.31V84.9655ZM153.931 84.9655H162.552V93.5862H153.931V84.9655ZM197.034 84.9655H205.655V93.5862H197.034V84.9655ZM205.655 84.9655H214.276V93.5862H205.655V84.9655ZM222.897 84.9655H231.517V93.5862H222.897V84.9655ZM231.517 84.9655H240.138V93.5862H231.517V84.9655ZM248.759 84.9655H257.379V93.5862H248.759V84.9655ZM16 93.5862H24.6207V102.207H16V93.5862ZM33.2414 93.5862H41.8621V102.207H33.2414V93.5862ZM76.3448 93.5862H84.9655V102.207H76.3448V93.5862ZM110.828 93.5862H119.448V102.207H110.828V93.5862ZM128.069 93.5862H136.69V102.207H128.069V93.5862ZM136.69 93.5862H145.31V102.207H136.69V93.5862ZM145.31 93.5862H153.931V102.207H145.31V93.5862ZM171.172 93.5862H179.793V102.207H171.172V93.5862ZM214.276 93.5862H222.897V102.207H214.276V93.5862ZM222.897 93.5862H231.517V102.207H222.897V93.5862ZM231.517 93.5862H240.138V102.207H231.517V93.5862ZM248.759 93.5862H257.379V102.207H248.759V93.5862ZM16 102.207H24.6207V110.828H16V102.207ZM24.6207 102.207H33.2414V110.828H24.6207V102.207ZM41.8621 102.207H50.4828V110.828H41.8621V102.207ZM50.4828 102.207H59.1034V110.828H50.4828V102.207ZM67.7241 102.207H76.3448V110.828H67.7241V102.207ZM84.9655 102.207H93.5862V110.828H84.9655V102.207ZM93.5862 102.207H102.207V110.828H93.5862V102.207ZM102.207 102.207H110.828V110.828H102.207V102.207ZM128.069 102.207H136.69V110.828H128.069V102.207ZM136.69 102.207H145.31V110.828H136.69V102.207ZM145.31 102.207H153.931V110.828H145.31V102.207ZM162.552 102.207H171.172V110.828H162.552V102.207ZM171.172 102.207H179.793V110.828H171.172V102.207ZM188.414 102.207H197.034V110.828H188.414V102.207ZM205.655 102.207H214.276V110.828H205.655V102.207ZM222.897 102.207H231.517V110.828H222.897V102.207ZM231.517 102.207H240.138V110.828H231.517V102.207ZM24.6207 110.828H33.2414V119.448H24.6207V110.828ZM50.4828 110.828H59.1034V119.448H50.4828V110.828ZM76.3448 110.828H84.9655V119.448H76.3448V110.828ZM84.9655 110.828H93.5862V119.448H84.9655V110.828ZM102.207 110.828H110.828V119.448H102.207V110.828ZM119.448 110.828H128.069V119.448H119.448V110.828ZM136.69 110.828H145.31V119.448H136.69V110.828ZM145.31 110.828H153.931V119.448H145.31V110.828ZM153.931 110.828H162.552V119.448H153.931V110.828ZM162.552 110.828H171.172V119.448H162.552V110.828ZM179.793 110.828H188.414V119.448H179.793V110.828ZM188.414 110.828H197.034V119.448H188.414V110.828ZM197.034 110.828H205.655V119.448H197.034V110.828ZM222.897 110.828H231.517V119.448H222.897V110.828ZM231.517 110.828H240.138V119.448H231.517V110.828ZM257.379 110.828H266V119.448H257.379V110.828ZM16 119.448H24.6207V128.069H16V119.448ZM24.6207 119.448H33.2414V128.069H24.6207V119.448ZM41.8621 119.448H50.4828V128.069H41.8621V119.448ZM50.4828 119.448H59.1034V128.069H50.4828V119.448ZM67.7241 119.448H76.3448V128.069H67.7241V119.448ZM93.5862 119.448H102.207V128.069H93.5862V119.448ZM102.207 119.448H110.828V128.069H102.207V119.448ZM110.828 119.448H119.448V128.069H110.828V119.448ZM128.069 119.448H136.69V128.069H128.069V119.448ZM179.793 119.448H188.414V128.069H179.793V119.448ZM188.414 119.448H197.034V128.069H188.414V119.448ZM197.034 119.448H205.655V128.069H197.034V119.448ZM205.655 119.448H214.276V128.069H205.655V119.448ZM214.276 119.448H222.897V128.069H214.276V119.448ZM231.517 119.448H240.138V128.069H231.517V119.448ZM248.759 119.448H257.379V128.069H248.759V119.448ZM33.2414 128.069H41.8621V136.69H33.2414V128.069ZM76.3448 128.069H84.9655V136.69H76.3448V128.069ZM84.9655 128.069H93.5862V136.69H84.9655V128.069ZM93.5862 128.069H102.207V136.69H93.5862V128.069ZM171.172 128.069H179.793V136.69H171.172V128.069ZM188.414 128.069H197.034V136.69H188.414V128.069ZM205.655 128.069H214.276V136.69H205.655V128.069ZM222.897 128.069H231.517V136.69H222.897V128.069ZM240.138 128.069H248.759V136.69H240.138V128.069ZM257.379 128.069H266V136.69H257.379V128.069ZM16 136.69H24.6207V145.31H16V136.69ZM24.6207 136.69H33.2414V145.31H24.6207V136.69ZM33.2414 136.69H41.8621V145.31H33.2414V136.69ZM50.4828 136.69H59.1034V145.31H50.4828V136.69ZM67.7241 136.69H76.3448V145.31H67.7241V136.69ZM76.3448 136.69H84.9655V145.31H76.3448V136.69ZM110.828 136.69H119.448V145.31H110.828V136.69ZM128.069 136.69H136.69V145.31H128.069V136.69ZM136.69 136.69H145.31V145.31H136.69V136.69ZM145.31 136.69H153.931V145.31H145.31V136.69ZM153.931 136.69H162.552V145.31H153.931V136.69ZM171.172 136.69H179.793V145.31H171.172V136.69ZM179.793 136.69H188.414V145.31H179.793V136.69ZM231.517 136.69H240.138V145.31H231.517V136.69ZM257.379 136.69H266V145.31H257.379V136.69ZM24.6207 145.31H33.2414V153.931H24.6207V145.31ZM41.8621 145.31H50.4828V153.931H41.8621V145.31ZM76.3448 145.31H84.9655V153.931H76.3448V145.31ZM110.828 145.31H119.448V153.931H110.828V145.31ZM119.448 145.31H128.069V153.931H119.448V145.31ZM145.31 145.31H153.931V153.931H145.31V145.31ZM179.793 145.31H188.414V153.931H179.793V145.31ZM197.034 145.31H205.655V153.931H197.034V145.31ZM205.655 145.31H214.276V153.931H205.655V145.31ZM231.517 145.31H240.138V153.931H231.517V145.31ZM240.138 145.31H248.759V153.931H240.138V145.31ZM248.759 145.31H257.379V153.931H248.759V145.31ZM33.2414 153.931H41.8621V162.552H33.2414V153.931ZM50.4828 153.931H59.1034V162.552H50.4828V153.931ZM59.1034 153.931H67.7241V162.552H59.1034V153.931ZM67.7241 153.931H76.3448V162.552H67.7241V153.931ZM76.3448 153.931H84.9655V162.552H76.3448V153.931ZM93.5862 153.931H102.207V162.552H93.5862V153.931ZM128.069 153.931H136.69V162.552H128.069V153.931ZM136.69 153.931H145.31V162.552H136.69V153.931ZM145.31 153.931H153.931V162.552H145.31V153.931ZM162.552 153.931H171.172V162.552H162.552V153.931ZM171.172 153.931H179.793V162.552H171.172V153.931ZM214.276 153.931H222.897V162.552H214.276V153.931ZM231.517 153.931H240.138V162.552H231.517V153.931ZM248.759 153.931H257.379V162.552H248.759V153.931ZM16 162.552H24.6207V171.172H16V162.552ZM24.6207 162.552H33.2414V171.172H24.6207V162.552ZM41.8621 162.552H50.4828V171.172H41.8621V162.552ZM59.1034 162.552H67.7241V171.172H59.1034V162.552ZM76.3448 162.552H84.9655V171.172H76.3448V162.552ZM110.828 162.552H119.448V171.172H110.828V162.552ZM119.448 162.552H128.069V171.172H119.448V162.552ZM136.69 162.552H145.31V171.172H136.69V162.552ZM179.793 162.552H188.414V171.172H179.793V162.552ZM188.414 162.552H197.034V171.172H188.414V162.552ZM197.034 162.552H205.655V171.172H197.034V162.552ZM222.897 162.552H231.517V171.172H222.897V162.552ZM231.517 162.552H240.138V171.172H231.517V162.552ZM240.138 162.552H248.759V171.172H240.138V162.552ZM16 171.172H24.6207V179.793H16V171.172ZM24.6207 171.172H33.2414V179.793H24.6207V171.172ZM33.2414 171.172H41.8621V179.793H33.2414V171.172ZM41.8621 171.172H50.4828V179.793H41.8621V171.172ZM50.4828 171.172H59.1034V179.793H50.4828V171.172ZM59.1034 171.172H67.7241V179.793H59.1034V171.172ZM67.7241 171.172H76.3448V179.793H67.7241V171.172ZM76.3448 171.172H84.9655V179.793H76.3448V171.172ZM110.828 171.172H119.448V179.793H110.828V171.172ZM128.069 171.172H136.69V179.793H128.069V171.172ZM136.69 171.172H145.31V179.793H136.69V171.172ZM153.931 171.172H162.552V179.793H153.931V171.172ZM171.172 171.172H179.793V179.793H171.172V171.172ZM179.793 171.172H188.414V179.793H179.793V171.172ZM240.138 171.172H248.759V179.793H240.138V171.172ZM257.379 171.172H266V179.793H257.379V171.172ZM16 179.793H24.6207V188.414H16V179.793ZM24.6207 179.793H33.2414V188.414H24.6207V179.793ZM50.4828 179.793H59.1034V188.414H50.4828V179.793ZM102.207 179.793H110.828V188.414H102.207V179.793ZM119.448 179.793H128.069V188.414H119.448V179.793ZM136.69 179.793H145.31V188.414H136.69V179.793ZM145.31 179.793H153.931V188.414H145.31V179.793ZM153.931 179.793H162.552V188.414H153.931V179.793ZM197.034 179.793H205.655V188.414H197.034V179.793ZM205.655 179.793H214.276V188.414H205.655V179.793ZM214.276 179.793H222.897V188.414H214.276V179.793ZM231.517 179.793H240.138V188.414H231.517V179.793ZM240.138 179.793H248.759V188.414H240.138V179.793ZM248.759 179.793H257.379V188.414H248.759V179.793ZM257.379 179.793H266V188.414H257.379V179.793ZM16 188.414H24.6207V197.034H16V188.414ZM24.6207 188.414H33.2414V197.034H24.6207V188.414ZM41.8621 188.414H50.4828V197.034H41.8621V188.414ZM50.4828 188.414H59.1034V197.034H50.4828V188.414ZM59.1034 188.414H67.7241V197.034H59.1034V188.414ZM67.7241 188.414H76.3448V197.034H67.7241V188.414ZM93.5862 188.414H102.207V197.034H93.5862V188.414ZM110.828 188.414H119.448V197.034H110.828V188.414ZM128.069 188.414H136.69V197.034H128.069V188.414ZM153.931 188.414H162.552V197.034H153.931V188.414ZM162.552 188.414H171.172V197.034H162.552V188.414ZM179.793 188.414H188.414V197.034H179.793V188.414ZM188.414 188.414H197.034V197.034H188.414V188.414ZM197.034 188.414H205.655V197.034H197.034V188.414ZM205.655 188.414H214.276V197.034H205.655V188.414ZM214.276 188.414H222.897V197.034H214.276V188.414ZM222.897 188.414H231.517V197.034H222.897V188.414ZM231.517 188.414H240.138V197.034H231.517V188.414ZM240.138 188.414H248.759V197.034H240.138V188.414ZM248.759 188.414H257.379V197.034H248.759V188.414ZM84.9655 197.034H93.5862V205.655H84.9655V197.034ZM93.5862 197.034H102.207V205.655H93.5862V197.034ZM102.207 197.034H110.828V205.655H102.207V197.034ZM128.069 197.034H136.69V205.655H128.069V197.034ZM145.31 197.034H153.931V205.655H145.31V197.034ZM153.931 197.034H162.552V205.655H153.931V197.034ZM162.552 197.034H171.172V205.655H162.552V197.034ZM171.172 197.034H179.793V205.655H171.172V197.034ZM188.414 197.034H197.034V205.655H188.414V197.034ZM222.897 197.034H231.517V205.655H222.897V197.034ZM231.517 197.034H240.138V205.655H231.517V197.034ZM240.138 197.034H248.759V205.655H240.138V197.034ZM16 205.655H24.6207V214.276H16V205.655ZM24.6207 205.655H33.2414V214.276H24.6207V205.655ZM33.2414 205.655H41.8621V214.276H33.2414V205.655ZM41.8621 205.655H50.4828V214.276H41.8621V205.655ZM50.4828 205.655H59.1034V214.276H50.4828V205.655ZM59.1034 205.655H67.7241V214.276H59.1034V205.655ZM67.7241 205.655H76.3448V214.276H67.7241V205.655ZM119.448 205.655H128.069V214.276H119.448V205.655ZM128.069 205.655H136.69V214.276H128.069V205.655ZM136.69 205.655H145.31V214.276H136.69V205.655ZM145.31 205.655H153.931V214.276H145.31V205.655ZM153.931 205.655H162.552V214.276H153.931V205.655ZM179.793 205.655H188.414V214.276H179.793V205.655ZM188.414 205.655H197.034V214.276H188.414V205.655ZM205.655 205.655H214.276V214.276H205.655V205.655ZM222.897 205.655H231.517V214.276H222.897V205.655ZM240.138 205.655H248.759V214.276H240.138V205.655ZM16 214.276H24.6207V222.897H16V214.276ZM67.7241 214.276H76.3448V222.897H67.7241V214.276ZM84.9655 214.276H93.5862V222.897H84.9655V214.276ZM110.828 214.276H119.448V222.897H110.828V214.276ZM128.069 214.276H136.69V222.897H128.069V214.276ZM145.31 214.276H153.931V222.897H145.31V214.276ZM171.172 214.276H179.793V222.897H171.172V214.276ZM179.793 214.276H188.414V222.897H179.793V214.276ZM188.414 214.276H197.034V222.897H188.414V214.276ZM222.897 214.276H231.517V222.897H222.897V214.276ZM231.517 214.276H240.138V222.897H231.517V214.276ZM16 222.897H24.6207V231.517H16V222.897ZM33.2414 222.897H41.8621V231.517H33.2414V222.897ZM41.8621 222.897H50.4828V231.517H41.8621V222.897ZM50.4828 222.897H59.1034V231.517H50.4828V222.897ZM67.7241 222.897H76.3448V231.517H67.7241V222.897ZM84.9655 222.897H93.5862V231.517H84.9655V222.897ZM93.5862 222.897H102.207V231.517H93.5862V222.897ZM102.207 222.897H110.828V231.517H102.207V222.897ZM110.828 222.897H119.448V231.517H110.828V222.897ZM162.552 222.897H171.172V231.517H162.552V222.897ZM179.793 222.897H188.414V231.517H179.793V222.897ZM188.414 222.897H197.034V231.517H188.414V222.897ZM197.034 222.897H205.655V231.517H197.034V222.897ZM205.655 222.897H214.276V231.517H205.655V222.897ZM214.276 222.897H222.897V231.517H214.276V222.897ZM222.897 222.897H231.517V231.517H222.897V222.897ZM16 231.517H24.6207V240.138H16V231.517ZM33.2414 231.517H41.8621V240.138H33.2414V231.517ZM41.8621 231.517H50.4828V240.138H41.8621V231.517ZM50.4828 231.517H59.1034V240.138H50.4828V231.517ZM67.7241 231.517H76.3448V240.138H67.7241V231.517ZM84.9655 231.517H93.5862V240.138H84.9655V231.517ZM119.448 231.517H128.069V240.138H119.448V231.517ZM128.069 231.517H136.69V240.138H128.069V231.517ZM171.172 231.517H179.793V240.138H171.172V231.517ZM179.793 231.517H188.414V240.138H179.793V231.517ZM188.414 231.517H197.034V240.138H188.414V231.517ZM197.034 231.517H205.655V240.138H197.034V231.517ZM214.276 231.517H222.897V240.138H214.276V231.517ZM248.759 231.517H257.379V240.138H248.759V231.517ZM16 240.138H24.6207V248.759H16V240.138ZM33.2414 240.138H41.8621V248.759H33.2414V240.138ZM41.8621 240.138H50.4828V248.759H41.8621V240.138ZM50.4828 240.138H59.1034V248.759H50.4828V240.138ZM67.7241 240.138H76.3448V248.759H67.7241V240.138ZM93.5862 240.138H102.207V248.759H93.5862V240.138ZM102.207 240.138H110.828V248.759H102.207V240.138ZM128.069 240.138H136.69V248.759H128.069V240.138ZM145.31 240.138H153.931V248.759H145.31V240.138ZM171.172 240.138H179.793V248.759H171.172V240.138ZM179.793 240.138H188.414V248.759H179.793V240.138ZM222.897 240.138H231.517V248.759H222.897V240.138ZM240.138 240.138H248.759V248.759H240.138V240.138ZM248.759 240.138H257.379V248.759H248.759V240.138ZM257.379 240.138H266V248.759H257.379V240.138ZM16 248.759H24.6207V257.379H16V248.759ZM67.7241 248.759H76.3448V257.379H67.7241V248.759ZM84.9655 248.759H93.5862V257.379H84.9655V248.759ZM93.5862 248.759H102.207V257.379H93.5862V248.759ZM128.069 248.759H136.69V257.379H128.069V248.759ZM153.931 248.759H162.552V257.379H153.931V248.759ZM222.897 248.759H231.517V257.379H222.897V248.759ZM231.517 248.759H240.138V257.379H231.517V248.759ZM240.138 248.759H248.759V257.379H240.138V248.759ZM257.379 248.759H266V257.379H257.379V248.759ZM16 257.379H24.6207V266H16V257.379ZM24.6207 257.379H33.2414V266H24.6207V257.379ZM33.2414 257.379H41.8621V266H33.2414V257.379ZM41.8621 257.379H50.4828V266H41.8621V257.379ZM50.4828 257.379H59.1034V266H50.4828V257.379ZM59.1034 257.379H67.7241V266H59.1034V257.379ZM67.7241 257.379H76.3448V266H67.7241V257.379ZM93.5862 257.379H102.207V266H93.5862V257.379ZM102.207 257.379H110.828V266H102.207V257.379ZM110.828 257.379H119.448V266H110.828V257.379ZM128.069 257.379H136.69V266H128.069V257.379ZM145.31 257.379H153.931V266H145.31V257.379ZM179.793 257.379H188.414V266H179.793V257.379ZM188.414 257.379H197.034V266H188.414V257.379ZM197.034 257.379H205.655V266H197.034V257.379ZM214.276 257.379H222.897V266H214.276V257.379ZM222.897 257.379H231.517V266H222.897V257.379ZM231.517 257.379H240.138V266H231.517V257.379ZM240.138 257.379H248.759V266H240.138V257.379Z" fill="black"/>
+</svg></a>
+  </div>
+ </div>
+ <div class="savebar"><button class="btn ghost full" id="copy">처방전 텍스트 복사 &nbsp;&#10697;</button></div>
+ <div class="foot">
+  <div class="sig">Open Your Brand.  O_o!</div>
+  <div class="copy">2021 © nunddigo. All rights reserved.</div>
+  <button class="reset" id="again">눈맞춤 다시 하기</button>
+ </div>
+</div></div></section>
+
+<div class="talk" id="talk"><div class="b"><div class="e" id="tE">-_-</div><div class="t" id="tT"></div>
+ <button class="btn ghost" id="tX">알겠습니다</button></div></div>
+
+<script src="data.js"></script><script src="app.js"></script>
+</body></html>

@@ -1,0 +1,9 @@
+.git
+.gitignore
+.wrangler
+node_modules
+README.md
+netlify.toml
+_headers
+_redirects
+.DS_Store
