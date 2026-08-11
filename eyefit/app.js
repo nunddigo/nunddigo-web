@@ -213,10 +213,11 @@ function bindHex(txtId,pickId,sugId,arr,setter,label){
     var v=this.value.trim(); if(v&&v[0]!=='#'){v='#'+v;this.value=v}
     this.value=this.value.toUpperCase(); v=this.value;
     setter(v);save();
+    if(/^#[0-9A-F]{6}$/.test(v))pk.value=v;
     var n=nearIn(v,arr);
     sg.innerHTML=n<0?(v.length>1?'<span style="color:var(--muted)">여섯 자리로 적어주세요. 예) #1F3226</span>':'')
       :'가장 가까운 '+label+'은 <b>'+arr[n][0]+'</b>입니다. 아래에서 골라뒀습니다.';
-    if(n>=0){pk.value=arr[n][1]||'#000000';
+    if(n>=0){
       if(label==='배경')S.bg=n; else S.point=n;
       save();drawColor();refresh()}};
   pk.oninput=function(){t.value=this.value.toUpperCase();t.oninput.call(t)}}
