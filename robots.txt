@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /eyetest/
+Disallow: /eyefit/
 
-Sitemap: https://nunddigo.netlify.app/sitemap.xml
+Sitemap: https://nunddigo.com/sitemap.xml
