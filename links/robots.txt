@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://links.nunddigo.com/sitemap.xml
