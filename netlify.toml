@@ -1,8 +1,20 @@
-# 이 파일은 Netlify만 읽는다. Cloudflare Workers는 무시한다.
-# nunddigo.netlify.app 으로 남아 있는 과거 링크를 정본 도메인으로 넘긴다.
+# ⚠ 이 파일은 Netlify만 읽는다. Cloudflare Workers는 무시한다.
+# nunddigo.netlify.app 은 폐기됐다. 과거 링크를 정본 도메인으로 넘긴다.
 
 [build]
   publish = "."
+
+[[redirects]]
+  from = "/eyetest/*"
+  to = "https://eyetest.nunddigo.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/links/*"
+  to = "https://links.nunddigo.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/*"

@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- 카카오톡, 노션 공유용 썸네일 설정 -->
+<meta property="og:title" content="눈에 띄는 브랜드 포트폴리오 · 소개서 편">
+<meta property="og:description" content="브랜드 디자인 에이전시의 포트폴리오 소개서입니다.">
+<meta property="og:image" content="https://links.nunddigo.com/ebook/og_image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://links.nunddigo.com/ebook/">
+<link rel="canonical" href="https://links.nunddigo.com/ebook/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://links.nunddigo.com/ebook/og_image.jpg">
+<!-- 브라우저 탭 아이콘 설정 -->
+<link rel="icon" href="./favicon.png" type="image/png">
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>눈에 띄는 브랜드 포트폴리오 · 소개서 편 · 눈띄고</title>
+<style>
+  :root{
+    --bg-0:#0c0d10;
+    --bg-1:#111317;
+    --bg-2:#17191e;
+    --text:#f1f0eb;
+    --muted:#a9a8a4;
+    --line:rgba(255,255,255,.09);
+    --shadow:rgba(0,0,0,.52);
+    --bw:clamp(270px, 26vw, 390px);
+    --bh:calc(var(--bw) * 1.41374);
+    --bd:clamp(34px, 3.2vw, 56px);
+    --rx:0deg;
+    --ry:0deg;
+    --lift:0px;
+    --scale:1;
+    --glow-x:50%;
+    --glow-y:45%;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    min-height:100%;
+    overflow-x:hidden;
+    color:var(--text);
+    font-family:"Pretendard","SUIT",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    background:
+      radial-gradient(1200px 700px at 50% -8%, rgba(255,255,255,.10), rgba(255,255,255,0) 58%),
+      radial-gradient(900px 560px at 16% 18%, rgba(135,144,167,.12), rgba(135,144,167,0) 55%),
+      radial-gradient(760px 500px at 86% 70%, rgba(255,255,255,.10), rgba(255,255,255,0) 46%),
+      linear-gradient(160deg, var(--bg-2) 0%, var(--bg-1) 44%, var(--bg-0) 100%);
+    display:grid;
+    place-items:center;
+    padding:clamp(20px, 4vw, 48px);
+  }
+
+  .canvas{
+    width:min(1180px, 100%);
+    position:relative;
+    display:grid;
+    gap:clamp(34px, 5vw, 72px);
+    align-items:center;
+    justify-items:center;
+  }
+
+  .backdrop{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    filter:blur(2px);
+  }
+
+  .backdrop::before,
+  .backdrop::after{
+    content:"";
+    position:absolute;
+    border-radius:999px;
+    opacity:.52;
+    mix-blend-mode:screen;
+  }
+
+  .backdrop::before{
+    width:clamp(280px, 34vw, 460px);
+    height:clamp(280px, 34vw, 460px);
+    left:-8%;
+    top:6%;
+    background:radial-gradient(circle at 35% 35%, rgba(255,255,255,.16), rgba(255,255,255,0) 66%);
+  }
+
+  .backdrop::after{
+    width:clamp(320px, 38vw, 540px);
+    height:clamp(320px, 38vw, 540px);
+    right:-10%;
+    bottom:-6%;
+    background:radial-gradient(circle at 38% 40%, rgba(245,242,236,.18), rgba(245,242,236,0) 64%);
+  }
+
+  .hero{
+    display:grid;
+    justify-items:center;
+    gap:clamp(14px, 2vw, 24px);
+    position:relative;
+    z-index:2;
+    margin-top:clamp(0px, 0.5vw, 8px);
+  }
+
+  .scene{
+    perspective:2800px;
+    perspective-origin:50% 40%;
+    width:min(100%, calc(var(--bw) + 36px));
+    display:grid;
+    place-items:center;
+  }
+
+  .stage{
+    position:relative;
+    width:var(--bw);
+    height:calc(var(--bh) + 6px);
+    transform-style:preserve-3d;
+    animation:float 9s ease-in-out infinite;
+    will-change:transform;
+  }
+
+  .shadow{
+    position:absolute;
+    left:50%;
+    bottom:0;
+    width:clamp(230px, 26vw, 360px);
+    height:clamp(30px, 3.5vw, 48px);
+    transform:translateX(-50%) rotateX(74deg) translateZ(-80px);
+    background:
+      radial-gradient(closest-side, rgba(0,0,0,.62), rgba(0,0,0,0) 76%);
+    filter:blur(18px);
+    opacity:.8;
+  }
+
+  .book{
+    position:absolute;
+    inset:0 0 42px 0;
+    margin:auto;
+    width:var(--bw);
+    height:var(--bh);
+    transform-style:preserve-3d;
+    transform:
+      translateY(var(--lift))
+      rotateX(calc(3deg + var(--rx)))
+      rotateY(calc(-8deg + var(--ry)))
+      scale(var(--scale));
+    transition:
+      transform .32s cubic-bezier(.2,.75,.2,1.05),
+      filter .32s ease;
+    filter:drop-shadow(0 42px 48px rgba(0,0,0,.36));
+    text-decoration:none;
+    outline:none;
+    cursor:pointer;
+  }
+
+  .book:focus-visible{
+    outline:2px solid rgba(255,255,255,.72);
+    outline-offset:12px;
+    border-radius:10px;
+  }
+
+  .book:hover,
+  .book:focus-visible{
+    --lift:-3px;
+    --scale:1.015;
+    filter:drop-shadow(0 56px 64px rgba(0,0,0,.48));
+  }
+
+  .face{
+    position:absolute;
+    overflow:hidden;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+  }
+
+  .front{
+    inset:0;
+    transform:translateZ(calc(var(--bd) / 2));
+    border-radius:6px 12px 12px 6px;
+    background:#f4f1ec url("./book_cover.jpg") center center / cover no-repeat;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,.18),
+      inset 0 18px 34px rgba(255,255,255,.16),
+      inset 0 -14px 24px rgba(0,0,0,.05);
+  }
+
+  .front::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(125deg, rgba(255,255,255,.46) 0%, rgba(255,255,255,0) 22%),
+      linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 12%, rgba(0,0,0,.03) 100%);
+    mix-blend-mode:screen;
+    pointer-events:none;
+    z-index:2;
+  }
+
+  .front::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(140% 90% at var(--glow-x) var(--glow-y), rgba(255,255,255,.24), rgba(255,255,255,0) 46%),
+      linear-gradient(180deg, rgba(0,0,0,0) 58%, rgba(0,0,0,.06) 100%);
+    pointer-events:none;
+    z-index:3;
+    opacity:.72;
+  }
+
+  .cover{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+    display:block;
+    transform:scale(1.001);
+    z-index:1;
+  }
+
+  .back{
+    inset:0;
+    transform:translateZ(calc(var(--bd) / -2)) rotateY(180deg);
+    border-radius:12px 6px 6px 12px;
+    background:
+      radial-gradient(circle at 28% 24%, rgba(255,255,255,.08), rgba(255,255,255,0) 34%),
+      linear-gradient(135deg, #0f1114 0%, #181a1f 45%, #090a0c 100%);
+  }
+
+  .back::before{
+    content:"";
+    position:absolute;
+    inset:14px 12px 14px 16px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,.05);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, rgba(255,255,255,0) 1px 7px);
+  }
+
+  .spine{
+    width:var(--bd);
+    height:100%;
+    left:0;
+    top:0;
+    transform-origin:left center;
+    transform:rotateY(-90deg) translateZ(1px);
+    border-radius:6px 0 0 6px;
+    background:
+      linear-gradient(90deg, #090a0c 0%, #1c1d20 18%, #121316 48%, #060708 100%);
+    box-shadow:
+      inset -1px 0 0 rgba(255,255,255,.05),
+      inset 1px 0 0 rgba(0,0,0,.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .spine::before{
+    content:"";
+    position:absolute;
+    inset:10px 6px;
+    border-radius:999px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 36%, rgba(255,255,255,.08) 72%, rgba(255,255,255,0));
+    opacity:.55;
+  }
+
+  .spine span{
+    position:relative;
+    z-index:1;
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    color:#ecebe7;
+    font-size:13px;
+    letter-spacing:.20em;
+    font-weight:700;
+    white-space:nowrap;
+    text-shadow:0 1px 0 rgba(0,0,0,.6);
+  }
+
+  .pages{
+    width:var(--bd);
+    height:calc(100% - 14px);
+    right:0;
+    top:7px;
+    transform-origin:right center;
+    transform:rotateY(90deg) translateZ(1px);
+    border-radius:0 6px 6px 0;
+    background:
+      linear-gradient(90deg, #f9f8f4 0%, #f1efe9 16%, #e6e2da 55%, #faf9f6 100%),
+      repeating-linear-gradient(90deg, rgba(0,0,0,.10) 0 1px, rgba(0,0,0,0) 1px 3px);
+    box-shadow:
+      inset 0 0 0 1px rgba(0,0,0,.05),
+      inset 0 0 18px rgba(0,0,0,.06);
+  }
+
+  .pages::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.56), rgba(255,255,255,0) 22%, rgba(0,0,0,.05) 100%);
+    opacity:.78;
+  }
+
+  .cta{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    text-align:center;
+  }
+
+  .actions{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .read{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 22px;
+    border-radius:999px;
+    background:linear-gradient(180deg, #fcfbf8 0%, #ebe8e2 100%);
+    color:#111216;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:.01em;
+    text-decoration:none;
+    box-shadow:
+      0 16px 32px rgba(0,0,0,.32),
+      inset 0 1px 0 rgba(255,255,255,.72);
+    transition:transform .24s ease, box-shadow .24s ease, background .24s ease;
+  }
+
+  .read:hover,
+  .read:focus-visible{
+    transform:translateY(-2px);
+    box-shadow:
+      0 22px 40px rgba(0,0,0,.42),
+      inset 0 1px 0 rgba(255,255,255,.78);
+  }
+
+  .arrow{
+    transition:transform .24s ease;
+  }
+
+  .read:hover .arrow,
+  .read:focus-visible .arrow{
+    transform:translateX(4px);
+  }
+
+  .download{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 18px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.03);
+    color:rgba(241,240,235,.86);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:transform .24s ease, background .24s ease, border-color .24s ease, color .24s ease;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+
+  .download:hover,
+  .download:focus-visible{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,.07);
+    border-color:rgba(255,255,255,.22);
+    color:#fffdf8;
+  }
+
+  @keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-14px)}
+  }
+
+  @media (max-width: 760px){
+    :root{
+      --bw:clamp(220px, 74vw, 300px);
+      --bd:clamp(26px, 7vw, 40px);
+    }
+
+    body{
+      padding:16px;
+    }
+
+    .canvas{
+      gap:22px;
+    }
+
+    .hero{
+      gap:14px;
+      margin-top:0;
+    }
+
+    .scene{
+      width:min(100%, calc(var(--bw) + 12px));
+    }
+
+    .stage{
+      height:calc(var(--bh) + 2px);
+      animation:float 8.6s ease-in-out infinite;
+    }
+
+    .shadow{
+      width:clamp(190px, 60vw, 280px);
+      height:clamp(24px, 8vw, 40px);
+    }
+
+    .book{
+      --scale:1;
+      --lift:0px;
+      transform:
+        translateY(var(--lift))
+        rotateX(calc(2deg + var(--rx)))
+        rotateY(calc(-5deg + var(--ry)))
+        scale(var(--scale));
+    }
+
+    .cta{
+      gap:8px;
+    }
+
+    .actions{
+      gap:10px;
+    }
+
+    .read{
+      padding:12px 20px;
+      font-size:14px;
+    }
+
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .stage{animation:none}
+    .book{transition:none}
+    .read,.arrow{transition:none}
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="backdrop" aria-hidden="true"></div>
+
+    <main class="hero">
+      <div class="scene">
+        <div class="stage">
+          <div class="shadow" aria-hidden="true"></div>
+          <a class="book" href="./ebook.pdf" target="_blank" rel="noopener" aria-label="전자책 읽기">
+            <div class="face front">
+              <img class="cover" src="./book_cover.jpg" alt="눈에 띄는 브랜드 포트폴리오 소개서 표지" loading="eager" decoding="async">
+            </div>
+            <div class="face back" aria-hidden="true"></div>
+            <div class="face spine" aria-hidden="true"><span>Brand Portfolio · 소개서 편</span></div>
+            <div class="face pages" aria-hidden="true"></div>
+          </a>
+        </div>
+      </div>
+
+      <section class="cta" aria-label="전자책 안내">
+        <div class="actions">
+          <a class="read" href="./ebook.pdf" target="_blank" rel="noopener">
+            읽기
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="download" href="http://pf.kakao.com/_emxgvK/chat" target="_blank" rel="noopener">상담하기</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const book = document.querySelector('.book');
+      if (!book) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (reduceMotion.matches) return;
+
+      let frame = 0;
+      let active = false;
+
+      const set = (x, y, glowX, glowY) => {
+        book.style.setProperty('--ry', `${x.toFixed(2)}deg`);
+        book.style.setProperty('--rx', `${y.toFixed(2)}deg`);
+        book.style.setProperty('--glow-x', `${glowX.toFixed(1)}%`);
+        book.style.setProperty('--glow-y', `${glowY.toFixed(1)}%`);
+      };
+
+      const reset = () => {
+        active = false;
+        book.style.setProperty('--ry', '0deg');
+        book.style.setProperty('--rx', '0deg');
+        book.style.setProperty('--glow-x', '50%');
+        book.style.setProperty('--glow-y', '45%');
+      };
+
+      const onMove = (event) => {
+        if (!active) return;
+        const rect = book.getBoundingClientRect();
+        const px = (event.clientX - rect.left) / rect.width;
+        const py = (event.clientY - rect.top) / rect.height;
+        const dx = (px - 0.5) * 2;
+        const dy = (py - 0.5) * 2;
+
+        if (frame) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          set(dx * 10, -dy * 7, px * 100, py * 100);
+        });
+      };
+
+      book.addEventListener('pointerenter', () => {
+        active = true;
+      });
+
+      book.addEventListener('pointermove', onMove);
+      book.addEventListener('pointerleave', reset);
+      book.addEventListener('blur', reset);
+    })();
+  </script>
+</body>
+</html>
