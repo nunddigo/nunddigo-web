@@ -47,12 +47,13 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--grn);outline-offs
 .shell{background:#E4E1DB;border:var(--line);padding:12px 12px 1px;position:relative}
 .s{border:var(--line);background:var(--card);margin-bottom:12px;position:relative;overflow:hidden}
 .c{border:var(--line);background:var(--card);margin-bottom:12px;position:relative}
-.abt{display:flex;gap:16px;padding:24px 16px 0;overflow:hidden}
-.abt-l{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:22px;padding-bottom:22px}
-.abt-h{font-size:19px;font-weight:800;letter-spacing:-.8px;margin:0;line-height:1.45}
-.abt-r{flex:0 0 132px;display:flex;justify-content:center;align-items:flex-end}
-.prof{width:116px;height:auto;display:block;margin-bottom:-14px}
-@media (max-width:359px){.abt-r{flex:0 0 108px}.prof{width:96px;margin-bottom:-12px}.abt-h{font-size:17px}}
+.abt{display:flex;gap:12px;padding:22px 14px 0;overflow:hidden}
+.abt-l{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding-bottom:18px}
+.abt-h{font-size:17px;font-weight:800;letter-spacing:-.7px;margin:0;line-height:1.42}
+.abt-r{flex:0 0 120px;display:flex;justify-content:flex-end;align-items:flex-end}
+.prof{width:118px;height:auto;display:block;margin-bottom:-14px;margin-right:-4px}
+@media (max-width:359px){.abt-r{flex:0 0 100px}.prof{width:98px;margin-bottom:-12px}.abt-h{font-size:15.5px}}
+@media (min-width:400px){.abt-r{flex:0 0 132px}.prof{width:130px}.abt-h{font-size:18.5px}}
 .pair{display:flex;border:var(--line);background:var(--card);margin-bottom:12px}
 .pair a{flex:1;padding:16px 11px;display:flex;flex-direction:column;gap:3px;transition:background .25s var(--eo);min-width:0}
 .pair .h3{font-size:14px;letter-spacing:-.5px;white-space:nowrap}
@@ -78,6 +79,23 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--grn);outline-offs
 .tool:focus-within .cta i{transform:translateX(4px);background:#fff;color:var(--ink)}
 .t-g:focus-within .cta{background:var(--grn);color:#fff}
 .t-r:focus-within .cta{background:var(--red);color:#fff}
+.tool a:active .cta{background:var(--ink);color:#fff}
+.tool a:active .cta i{transform:translateX(4px);background:#fff;color:var(--ink)}
+a.li:active .arw{transform:translateX(4px)}
+.fin:active i{background:#fff;color:var(--grn);transform:translateX(4px)}
+.tile:active{background:#E9E7E1}
+.s a{-webkit-tap-highlight-color:transparent}
+.t-g a:active .cta{background:var(--grn);color:#fff}
+.t-r a:active .cta{background:var(--red);color:#fff}
+.tool a:active .thumb{filter:grayscale(0) contrast(1)}
+.tool.lit .thumb{filter:grayscale(0) contrast(1)}
+a.li:active{background:#E9E7E1}
+.pair a:active{background:#E9E7E1}
+.fin:active{background:var(--grn);color:#fff}
+.topbar button:active{background:var(--ink);color:#fff}
+.topbar a.lgo:active{background:var(--soft)}
+.bar a:active .w1{transform:translateY(-10px);opacity:0}
+.bar a:active .w2{transform:translateY(0);opacity:1}
 @media (hover:hover){
   .pair a:hover{background:var(--soft)}
   .fin:hover{background:var(--grn);color:#fff}
@@ -324,13 +342,13 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--grn);outline-offs
   <h2 class="hd inv"><span>09 · 눈띄고는</span><s>2021 ~</s></h2>
   <div class="abt">
     <div class="abt-l">
-      <p class="p" style="line-height:1.8;font-size:13.5px">2021년, 로고 하나 그려주는 일로 시작했습니다. 6년 동안 400건, 200개 브랜드를 만났습니다.</p>
-      <p class="abt-h">잘 만들고도 밀리는 이유는<br>거의 언제나 같았습니다.</p>
+      <p class="p" style="line-height:1.8;font-size:13px">2021년, 로고 하나 그려주는 일로 시작했습니다.</p>
+      <p class="abt-h">잘 만들고도 밀리는 이유는 거의 언제나 같았습니다.</p>
     </div>
     <div class="abt-r"><img class="prof" src="profile.jpg" alt="눈띄고 대표" width="360" height="526" loading="lazy" decoding="async" /></div>
   </div>
   <div style="border-top:var(--line);padding:18px 16px">
-    <p class="p" style="line-height:1.85;font-size:13.5px">실력이 아니라 <b style="font-weight:700">보이는 방식</b>이었습니다. 좋은 제품이 서류 한 장을 못 넘기고 조용히 사라지는 걸 너무 많이 봤습니다.</p>
+    <p class="p" style="line-height:1.85;font-size:13.5px">6년 동안 400건, 200개 브랜드를 지나며 알았습니다. 실력이 아니라 <b style="font-weight:700">보이는 방식</b>이었습니다. 좋은 제품이 서류 한 장을 못 넘기고 조용히 사라지는 걸 너무 많이 봤습니다.</p>
   </div>
   <div style="border-top:var(--line);padding:18px 16px;background:var(--soft)">
     <p class="p" style="line-height:1.85;font-size:13.5px">그래서 지금은 만드는 일보다 <b style="font-weight:700">보이게 하는 일</b>을 합니다. 브랜드가 시장에 어떻게 비치는지 살피고, 다시 맞춥니다.</p>
@@ -387,6 +405,13 @@ document.body.classList.remove('no-js');
     el.innerHTML=h;}
   fill('mqA',A);fill('mqB',B);
 
+  if(!window.matchMedia('(hover:hover)').matches&&'IntersectionObserver' in window&&!RM){
+    var tio=new IntersectionObserver(function(es){
+      es.forEach(function(e){e.target.classList.toggle('lit',e.isIntersecting)});
+    },{rootMargin:'-32% 0px -32% 0px'});
+    document.querySelectorAll('.tool').forEach(function(el){tio.observe(el)});
+  }
+
   var bar=document.getElementById('bar'),hero=document.getElementById('top');
   if('IntersectionObserver' in window){
     new IntersectionObserver(function(es){es.forEach(function(e){bar.classList.toggle('on',!e.isIntersecting)})},{threshold:0}).observe(hero);
@@ -428,11 +453,13 @@ document.body.classList.remove('no-js');
 
   var sh=document.getElementById('share');
   if(sh)sh.addEventListener('click',function(){
-    var data={title:'눈띄고',text:'브랜드를 눈에 띄게 만드는 디자인 스튜디오',url:location.href};
+    var cn=document.querySelector('link[rel=canonical]');
+    var url=cn?cn.href:(location.origin+location.pathname);
+    var data={title:'눈띄고',text:'브랜드를 눈에 띄게 만드는 디자인 스튜디오',url:url};
     if(navigator.share){navigator.share(data).catch(function(){});}
     else if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(location.href).then(function(){say('주소를 복사했습니다')},function(){say(location.href)});
-    }else{say(location.href);}
+      navigator.clipboard.writeText(url).then(function(){say('주소를 복사했습니다')},function(){say(url)});
+    }else{say(url);}
     if(typeof window.gtag==='function'){window.gtag('event','click_share');}
   });
 
