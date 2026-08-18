@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <title>브랜드 시력검사 · Brand EYE-TEST · 눈띄고</title>
-<meta name="description" content="내 브랜드, 진짜 눈에 띌까? 시장의 눈으로 보는 브랜드 시력 검사 — 눈띄고" />
+<meta name="description" content="내 브랜드, 진짜 눈에 띌까? 시장의 눈으로 보는 브랜드 시력검사 · 눈띄고" />
 <link rel="canonical" href="https://eyetest.nunddigo.com/" />
 <link rel="icon" type="image/png" href="favicon_black.png?v=2" />
 <meta property="og:type" content="website" />
@@ -21,9 +21,9 @@
 <meta name="twitter:title" content="브랜드 시력검사 · Brand EYE-TEST" />
 <meta name="twitter:description" content="내 브랜드, 진짜 눈에 띌까" />
 <meta name="twitter:image" content="https://eyetest.nunddigo.com/og_image_eyetest_sns.png" />
-<!-- 〈브랜드 시력 검사〉 v8 · 다크 시네마틱 · noindex
+<!-- 〈브랜드 시력검사〉 v8 · 다크 시네마틱 · noindex
      디자인 규칙: 딥 레드 다크 · 터프러브 · AI스러움 금지 · 레드=진단/그린=처방
-     흐름: 인트로 → 업종(X) → 목표(Y·다중) → 15문항 → 검안 중 → 결과 -->
+     흐름: 인트로 → 업종(X) → 목표(Y·다중) → 15문항 → 검사 중 → 결과 -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <style>
@@ -159,7 +159,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
 .nav{display:flex;justify-content:space-between;align-items:center;margin-top:34px;}
 .nav .step{font-family:var(--mono);font-size:11px;color:var(--faint);}
 
-/* ── 검안 중 ── */
+/* ── 검사 중 ── */
 .scan{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:60px 0;}
 .orb{width:70px;height:70px;position:relative;}
 .orb b,.orb i,.orb u{position:absolute;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);}
@@ -232,7 +232,14 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
 .focusbox .focus-sub{font-size:12.5px;color:var(--green);font-weight:700;margin-bottom:10px;}
 .focus-fix{font-size:clamp(16px,4.6vw,19px);font-weight:700;color:var(--text);line-height:1.5;letter-spacing:-0.015em;}
 .focus-hint{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5;}
-/* 목표 도수 */
+/* 상단 3줄 요약 */
+.tl3{padding:13px 16px;text-align:center;}
+.tl3-line{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--soft);line-height:1.7;}
+.tl3-line b{color:var(--text);font-weight:700;}
+/* 이어서 */
+.nextbox{padding:18px 16px;}
+.nextbox .next-p{color:var(--soft);font-size:14px;line-height:1.65;margin:6px 0 13px;}
+/* 목표 시력 */
 .goalline{font-size:14px;color:var(--soft);line-height:1.55;}
 .goalline b{font-weight:800;color:var(--text);}
 /* 처방전 */
@@ -311,7 +318,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
       <svg class="stamp" viewBox="0 0 100 100" aria-hidden="true">
         <defs><path id="scir" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
         <circle class="sc" cx="50" cy="50" r="46"/>
-        <text><textPath href="#scir" startOffset="0">눈 뜨면 · 눈에 띈다 · 5분 검안 · O_o · </textPath></text>
+        <text><textPath href="#scir" startOffset="0">눈 뜨면 · 눈에 띈다 · 5분 검사 · O_o · </textPath></text>
         <circle class="pupil" cx="50" cy="50" r="6"/>
       </svg>
     </div>
@@ -323,9 +330,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
     </div>
     <button class="p-cta" id="start"><span>검사하기</span><span class="arw">&#8594;</span></button>
     <div class="p-code"><div class="barcode"></div><span class="cd">15 QUESTIONS · 5 AXIS</span></div>
-    <div class="marquee"><div class="mq-track"><span><b>O_o</b>//<b>브랜드 시력 검사</b>//<b>BRAND EYE-TEST</b>//<b>눈 뜨면, 눈에 띈다</b>//<b>O_o</b>//<b>브랜드 시력 검사</b>//<b>BRAND EYE-TEST</b>//<b>눈 뜨면, 눈에 띈다</b>//</span></div></div>
+    <div class="marquee"><div class="mq-track"><span><b>O_o</b>//<b>브랜드 시력검사</b>//<b>BRAND EYE-TEST</b>//<b>눈 뜨면, 눈에 띈다</b>//<b>O_o</b>//<b>브랜드 시력검사</b>//<b>BRAND EYE-TEST</b>//<b>눈 뜨면, 눈에 띈다</b>//</span></div></div>
   </div>
-  <p class="oresume" id="resume" style="display:none;">보던 검사가 있습니다 — <button id="resumeBtn">이어서 보기</button></p>
+  <p class="oresume" id="resume" style="display:none;">보던 검사가 있습니다 · <button id="resumeBtn">이어서 보기</button></p>
   <div class="hfoot">약 5분 · 15문항 · 로그인 없음</div>
 </div></section>
 
@@ -333,7 +340,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
 <section class="screen" id="s-sector"><div class="wrap pick">
   <div class="tag">STEP 1 · 업종</div>
   <h2>어떤 브랜드를 검사할까요?</h2>
-  <div class="sub">업종에 따라 '눈에 띄어야 할 곳'이 다릅니다. 검사 항목은 같지만, 목표 도수가 달라집니다.</div>
+  <div class="sub">업종에 따라 '눈에 띄어야 할 곳'이 다릅니다. 검사 항목은 같지만, 목표 시력이 달라집니다.</div>
   <div class="grid" id="secGrid"></div>
   <div class="etcwrap" id="secEtcWrap"><input type="text" id="secEtcInput" placeholder="업종을 직접 입력해 주세요" maxlength="20" /></div>
   <div class="pickbar">
@@ -347,7 +354,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
 <section class="screen" id="s-goal"><div class="wrap pick">
   <div class="tag">STEP 2 · 목표</div>
   <h2>무엇에 눈에 띄고 싶으세요?</h2>
-  <div class="sub">여러 개 골라도 됩니다. 고른 만큼, 처방의 목표 도수가 정확해집니다.</div>
+  <div class="sub">여러 개 골라도 됩니다. 고른 만큼, 처방의 목표 시력이 정확해집니다.</div>
   <div class="grid" id="goalGrid"></div>
   <div class="etcwrap" id="goalEtcWrap"><input type="text" id="goalEtcInput" placeholder="목표를 직접 입력해 주세요" maxlength="24" /></div>
   <div class="pickbar">
@@ -375,7 +382,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
   </div>
 </div></section>
 
-<!-- 검안 중 -->
+<!-- 검사 중 -->
 <section class="screen" id="s-scan"><div class="wrap scan">
   <div class="orb" aria-hidden="true"><b></b><i></i><u></u></div>
   <div class="st shimmer" id="scanText">시력을 재는 중…</div>
@@ -386,9 +393,11 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
   <div class="rframe">
 
     <div class="rbox mast">
-      <div class="mast-bar"><span class="mh-no" id="repNo">검안 결과지</span><span id="repDate"></span></div>
-      <div class="mast-ttl"><span class="stripe"><i></i><i></i><i></i></span><h2>검안 결과지</h2></div>
+      <div class="mast-bar"><span class="mh-no" id="repNo">시력검사 결과지</span><span id="repDate"></span></div>
+      <div class="mast-ttl"><span class="stripe"><i></i><i></i><i></i></span><h2>시력검사 결과지</h2></div>
     </div>
+
+    <div class="rbox tl3"><div class="tl3-line" id="tl3"></div></div>
 
     <div class="rbox eqbox"><div class="rlbl">검사 대상</div><div class="eq" id="eqRow"></div></div>
 
@@ -412,7 +421,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
     <div class="rbox axbox">
       <div class="rlbl">축별 진단 · 5 Axis</div>
       <div class="bars" id="bars"></div>
-      <div class="axcap">정체 · 차별 · 뼈대는 <b>자가검안 기준</b>입니다. 정확한 검안은 처방에서.</div>
+      <div class="axcap">정체 · 차별 · 뼈대는 <b>스스로 답하신 기준</b>입니다. 실제로 보이는 시력은 처방에서.</div>
       <div class="findings" id="findings"></div>
     </div>
 
@@ -423,7 +432,13 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
       <div class="focus-hint" id="focusHint"></div>
     </div>
 
-    <div class="rbox goalbox"><div class="rlbl green">목표 도수</div><div class="goalline" id="goalLine"></div></div>
+    <div class="rbox goalbox"><div class="rlbl green">목표 시력</div><div class="goalline" id="goalLine"></div></div>
+
+    <div class="rbox nextbox" id="nextBox" style="display:none">
+      <div class="rlbl">이어서 · Next</div>
+      <p class="next-p">표현이 흐린 건 감각이 없어서가 아니라 기준이 없어서입니다.</p>
+      <a class="btn ghost full" href="https://eyefit.nunddigo.com" target="_blank" rel="noopener">디자인 눈맞춤 · 3분 &nbsp;&#8594;</a>
+    </div>
 
     <div class="rbox rxbox accent-green">
       <div class="rlbl green">처방전 신청</div>
@@ -441,18 +456,18 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
         <button class="addlink" id="addLink">+ 링크 추가</button>
       </div>
       <div class="field"><label>회신받을 이메일</label><input type="email" id="fEmail" placeholder="name@example.com" autocomplete="off" inputmode="email" /></div>
-      <div class="field"><label>눈띄고가 꼭 알아야 할 점 <span class="opt-tag">· 선택</span></label><textarea id="fNote" placeholder="지금 가장 걸리는 것, 목표 시점, 예산 감 등 — 있으면 처방이 정확해집니다."></textarea></div>
+      <div class="field"><label>눈띄고가 꼭 알아야 할 점 <span class="opt-tag">· 선택</span></label><textarea id="fNote" placeholder="지금 가장 걸리는 것, 목표 시점, 예산 감 등 · 있으면 처방이 정확해집니다."></textarea></div>
       <div class="err" id="err"></div>
       <button class="btn green full" id="rxSend">이 결과로 처방전 신청하기 &nbsp;&#8594;</button>
     </div>
 
     <div class="rbox remind">
-      <div class="rlbl">다음 검안 · Follow-up</div>
+      <div class="rlbl">다음 검사 · Follow-up</div>
       <div class="remind-t">2주 뒤, 다시 검사해 보세요.</div>
       <p class="remind-p">셀프 처방 하나만 적용해도, 시력은 오릅니다.</p>
     </div>
     <div class="rbox colobox">
-      <div class="colo-txt"><div class="cl-t">눈띄고 — 브랜드를 눈에 띄게</div><div class="cl-s" id="coloLine">BRAND EYE-TEST · O_o</div></div>
+      <div class="colo-txt"><div class="cl-t">눈띄고 · 브랜드를 눈에 띄게</div><div class="cl-s" id="coloLine">BRAND EYE-TEST · O_o</div></div>
       <a class="colo-qr" href="http://pf.kakao.com/_emxgvK" target="_blank" rel="noopener"><svg style="width:100%;height:auto;display:block"   viewBox="0 0 282 282" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="282" height="282" fill="white"/>
 <path d="M16 16H24.6207V24.6207H16V16ZM24.6207 16H33.2414V24.6207H24.6207V16ZM33.2414 16H41.8621V24.6207H33.2414V16ZM41.8621 16H50.4828V24.6207H41.8621V16ZM50.4828 16H59.1034V24.6207H50.4828V16ZM59.1034 16H67.7241V24.6207H59.1034V16ZM67.7241 16H76.3448V24.6207H67.7241V16ZM93.5862 16H102.207V24.6207H93.5862V16ZM102.207 16H110.828V24.6207H102.207V16ZM136.69 16H145.31V24.6207H136.69V16ZM153.931 16H162.552V24.6207H153.931V16ZM171.172 16H179.793V24.6207H171.172V16ZM179.793 16H188.414V24.6207H179.793V16ZM188.414 16H197.034V24.6207H188.414V16ZM205.655 16H214.276V24.6207H205.655V16ZM214.276 16H222.897V24.6207H214.276V16ZM222.897 16H231.517V24.6207H222.897V16ZM231.517 16H240.138V24.6207H231.517V16ZM240.138 16H248.759V24.6207H240.138V16ZM248.759 16H257.379V24.6207H248.759V16ZM257.379 16H266V24.6207H257.379V16ZM16 24.6207H24.6207V33.2414H16V24.6207ZM67.7241 24.6207H76.3448V33.2414H67.7241V24.6207ZM84.9655 24.6207H93.5862V33.2414H84.9655V24.6207ZM102.207 24.6207H110.828V33.2414H102.207V24.6207ZM119.448 24.6207H128.069V33.2414H119.448V24.6207ZM153.931 24.6207H162.552V33.2414H153.931V24.6207ZM162.552 24.6207H171.172V33.2414H162.552V24.6207ZM171.172 24.6207H179.793V33.2414H171.172V24.6207ZM179.793 24.6207H188.414V33.2414H179.793V24.6207ZM205.655 24.6207H214.276V33.2414H205.655V24.6207ZM257.379 24.6207H266V33.2414H257.379V24.6207ZM16 33.2414H24.6207V41.8621H16V33.2414ZM33.2414 33.2414H41.8621V41.8621H33.2414V33.2414ZM41.8621 33.2414H50.4828V41.8621H41.8621V33.2414ZM50.4828 33.2414H59.1034V41.8621H50.4828V33.2414ZM67.7241 33.2414H76.3448V41.8621H67.7241V33.2414ZM93.5862 33.2414H102.207V41.8621H93.5862V33.2414ZM119.448 33.2414H128.069V41.8621H119.448V33.2414ZM128.069 33.2414H136.69V41.8621H128.069V33.2414ZM136.69 33.2414H145.31V41.8621H136.69V33.2414ZM153.931 33.2414H162.552V41.8621H153.931V33.2414ZM205.655 33.2414H214.276V41.8621H205.655V33.2414ZM222.897 33.2414H231.517V41.8621H222.897V33.2414ZM231.517 33.2414H240.138V41.8621H231.517V33.2414ZM240.138 33.2414H248.759V41.8621H240.138V33.2414ZM257.379 33.2414H266V41.8621H257.379V33.2414ZM16 41.8621H24.6207V50.4828H16V41.8621ZM33.2414 41.8621H41.8621V50.4828H33.2414V41.8621ZM41.8621 41.8621H50.4828V50.4828H41.8621V41.8621ZM50.4828 41.8621H59.1034V50.4828H50.4828V41.8621ZM67.7241 41.8621H76.3448V50.4828H67.7241V41.8621ZM84.9655 41.8621H93.5862V50.4828H84.9655V41.8621ZM93.5862 41.8621H102.207V50.4828H93.5862V41.8621ZM102.207 41.8621H110.828V50.4828H102.207V41.8621ZM162.552 41.8621H171.172V50.4828H162.552V41.8621ZM179.793 41.8621H188.414V50.4828H179.793V41.8621ZM188.414 41.8621H197.034V50.4828H188.414V41.8621ZM205.655 41.8621H214.276V50.4828H205.655V41.8621ZM222.897 41.8621H231.517V50.4828H222.897V41.8621ZM231.517 41.8621H240.138V50.4828H231.517V41.8621ZM240.138 41.8621H248.759V50.4828H240.138V41.8621ZM257.379 41.8621H266V50.4828H257.379V41.8621ZM16 50.4828H24.6207V59.1034H16V50.4828ZM33.2414 50.4828H41.8621V59.1034H33.2414V50.4828ZM41.8621 50.4828H50.4828V59.1034H41.8621V50.4828ZM50.4828 50.4828H59.1034V59.1034H50.4828V50.4828ZM67.7241 50.4828H76.3448V59.1034H67.7241V50.4828ZM84.9655 50.4828H93.5862V59.1034H84.9655V50.4828ZM136.69 50.4828H145.31V59.1034H136.69V50.4828ZM153.931 50.4828H162.552V59.1034H153.931V50.4828ZM171.172 50.4828H179.793V59.1034H171.172V50.4828ZM179.793 50.4828H188.414V59.1034H179.793V50.4828ZM205.655 50.4828H214.276V59.1034H205.655V50.4828ZM222.897 50.4828H231.517V59.1034H222.897V50.4828ZM231.517 50.4828H240.138V59.1034H231.517V50.4828ZM240.138 50.4828H248.759V59.1034H240.138V50.4828ZM257.379 50.4828H266V59.1034H257.379V50.4828ZM16 59.1034H24.6207V67.7241H16V59.1034ZM67.7241 59.1034H76.3448V67.7241H67.7241V59.1034ZM93.5862 59.1034H102.207V67.7241H93.5862V59.1034ZM102.207 59.1034H110.828V67.7241H102.207V59.1034ZM110.828 59.1034H119.448V67.7241H110.828V59.1034ZM128.069 59.1034H136.69V67.7241H128.069V59.1034ZM136.69 59.1034H145.31V67.7241H136.69V59.1034ZM205.655 59.1034H214.276V67.7241H205.655V59.1034ZM257.379 59.1034H266V67.7241H257.379V59.1034ZM16 67.7241H24.6207V76.3448H16V67.7241ZM24.6207 67.7241H33.2414V76.3448H24.6207V67.7241ZM33.2414 67.7241H41.8621V76.3448H33.2414V67.7241ZM41.8621 67.7241H50.4828V76.3448H41.8621V67.7241ZM50.4828 67.7241H59.1034V76.3448H50.4828V67.7241ZM59.1034 67.7241H67.7241V76.3448H59.1034V67.7241ZM67.7241 67.7241H76.3448V76.3448H67.7241V67.7241ZM84.9655 67.7241H93.5862V76.3448H84.9655V67.7241ZM102.207 67.7241H110.828V76.3448H102.207V67.7241ZM119.448 67.7241H128.069V76.3448H119.448V67.7241ZM136.69 67.7241H145.31V76.3448H136.69V67.7241ZM153.931 67.7241H162.552V76.3448H153.931V67.7241ZM171.172 67.7241H179.793V76.3448H171.172V67.7241ZM188.414 67.7241H197.034V76.3448H188.414V67.7241ZM205.655 67.7241H214.276V76.3448H205.655V67.7241ZM214.276 67.7241H222.897V76.3448H214.276V67.7241ZM222.897 67.7241H231.517V76.3448H222.897V67.7241ZM231.517 67.7241H240.138V76.3448H231.517V67.7241ZM240.138 67.7241H248.759V76.3448H240.138V67.7241ZM248.759 67.7241H257.379V76.3448H248.759V67.7241ZM257.379 67.7241H266V76.3448H257.379V67.7241ZM84.9655 76.3448H93.5862V84.9655H84.9655V76.3448ZM93.5862 76.3448H102.207V84.9655H93.5862V76.3448ZM102.207 76.3448H110.828V84.9655H102.207V76.3448ZM145.31 76.3448H153.931V84.9655H145.31V76.3448ZM153.931 76.3448H162.552V84.9655H153.931V76.3448ZM162.552 76.3448H171.172V84.9655H162.552V76.3448ZM171.172 76.3448H179.793V84.9655H171.172V76.3448ZM24.6207 84.9655H33.2414V93.5862H24.6207V84.9655ZM41.8621 84.9655H50.4828V93.5862H41.8621V84.9655ZM50.4828 84.9655H59.1034V93.5862H50.4828V84.9655ZM59.1034 84.9655H67.7241V93.5862H59.1034V84.9655ZM67.7241 84.9655H76.3448V93.5862H67.7241V84.9655ZM84.9655 84.9655H93.5862V93.5862H84.9655V84.9655ZM93.5862 84.9655H102.207V93.5862H93.5862V84.9655ZM110.828 84.9655H119.448V93.5862H110.828V84.9655ZM119.448 84.9655H128.069V93.5862H119.448V84.9655ZM145.31 84.9655H153.931V93.5862H145.31V84.9655ZM153.931 84.9655H162.552V93.5862H153.931V84.9655ZM197.034 84.9655H205.655V93.5862H197.034V84.9655ZM205.655 84.9655H214.276V93.5862H205.655V84.9655ZM222.897 84.9655H231.517V93.5862H222.897V84.9655ZM231.517 84.9655H240.138V93.5862H231.517V84.9655ZM248.759 84.9655H257.379V93.5862H248.759V84.9655ZM16 93.5862H24.6207V102.207H16V93.5862ZM33.2414 93.5862H41.8621V102.207H33.2414V93.5862ZM76.3448 93.5862H84.9655V102.207H76.3448V93.5862ZM110.828 93.5862H119.448V102.207H110.828V93.5862ZM128.069 93.5862H136.69V102.207H128.069V93.5862ZM136.69 93.5862H145.31V102.207H136.69V93.5862ZM145.31 93.5862H153.931V102.207H145.31V93.5862ZM171.172 93.5862H179.793V102.207H171.172V93.5862ZM214.276 93.5862H222.897V102.207H214.276V93.5862ZM222.897 93.5862H231.517V102.207H222.897V93.5862ZM231.517 93.5862H240.138V102.207H231.517V93.5862ZM248.759 93.5862H257.379V102.207H248.759V93.5862ZM16 102.207H24.6207V110.828H16V102.207ZM24.6207 102.207H33.2414V110.828H24.6207V102.207ZM41.8621 102.207H50.4828V110.828H41.8621V102.207ZM50.4828 102.207H59.1034V110.828H50.4828V102.207ZM67.7241 102.207H76.3448V110.828H67.7241V102.207ZM84.9655 102.207H93.5862V110.828H84.9655V102.207ZM93.5862 102.207H102.207V110.828H93.5862V102.207ZM102.207 102.207H110.828V110.828H102.207V102.207ZM128.069 102.207H136.69V110.828H128.069V102.207ZM136.69 102.207H145.31V110.828H136.69V102.207ZM145.31 102.207H153.931V110.828H145.31V102.207ZM162.552 102.207H171.172V110.828H162.552V102.207ZM171.172 102.207H179.793V110.828H171.172V102.207ZM188.414 102.207H197.034V110.828H188.414V102.207ZM205.655 102.207H214.276V110.828H205.655V102.207ZM222.897 102.207H231.517V110.828H222.897V102.207ZM231.517 102.207H240.138V110.828H231.517V102.207ZM24.6207 110.828H33.2414V119.448H24.6207V110.828ZM50.4828 110.828H59.1034V119.448H50.4828V110.828ZM76.3448 110.828H84.9655V119.448H76.3448V110.828ZM84.9655 110.828H93.5862V119.448H84.9655V110.828ZM102.207 110.828H110.828V119.448H102.207V110.828ZM119.448 110.828H128.069V119.448H119.448V110.828ZM136.69 110.828H145.31V119.448H136.69V110.828ZM145.31 110.828H153.931V119.448H145.31V110.828ZM153.931 110.828H162.552V119.448H153.931V110.828ZM162.552 110.828H171.172V119.448H162.552V110.828ZM179.793 110.828H188.414V119.448H179.793V110.828ZM188.414 110.828H197.034V119.448H188.414V110.828ZM197.034 110.828H205.655V119.448H197.034V110.828ZM222.897 110.828H231.517V119.448H222.897V110.828ZM231.517 110.828H240.138V119.448H231.517V110.828ZM257.379 110.828H266V119.448H257.379V110.828ZM16 119.448H24.6207V128.069H16V119.448ZM24.6207 119.448H33.2414V128.069H24.6207V119.448ZM41.8621 119.448H50.4828V128.069H41.8621V119.448ZM50.4828 119.448H59.1034V128.069H50.4828V119.448ZM67.7241 119.448H76.3448V128.069H67.7241V119.448ZM93.5862 119.448H102.207V128.069H93.5862V119.448ZM102.207 119.448H110.828V128.069H102.207V119.448ZM110.828 119.448H119.448V128.069H110.828V119.448ZM128.069 119.448H136.69V128.069H128.069V119.448ZM179.793 119.448H188.414V128.069H179.793V119.448ZM188.414 119.448H197.034V128.069H188.414V119.448ZM197.034 119.448H205.655V128.069H197.034V119.448ZM205.655 119.448H214.276V128.069H205.655V119.448ZM214.276 119.448H222.897V128.069H214.276V119.448ZM231.517 119.448H240.138V128.069H231.517V119.448ZM248.759 119.448H257.379V128.069H248.759V119.448ZM33.2414 128.069H41.8621V136.69H33.2414V128.069ZM76.3448 128.069H84.9655V136.69H76.3448V128.069ZM84.9655 128.069H93.5862V136.69H84.9655V128.069ZM93.5862 128.069H102.207V136.69H93.5862V128.069ZM171.172 128.069H179.793V136.69H171.172V128.069ZM188.414 128.069H197.034V136.69H188.414V128.069ZM205.655 128.069H214.276V136.69H205.655V128.069ZM222.897 128.069H231.517V136.69H222.897V128.069ZM240.138 128.069H248.759V136.69H240.138V128.069ZM257.379 128.069H266V136.69H257.379V128.069ZM16 136.69H24.6207V145.31H16V136.69ZM24.6207 136.69H33.2414V145.31H24.6207V136.69ZM33.2414 136.69H41.8621V145.31H33.2414V136.69ZM50.4828 136.69H59.1034V145.31H50.4828V136.69ZM67.7241 136.69H76.3448V145.31H67.7241V136.69ZM76.3448 136.69H84.9655V145.31H76.3448V136.69ZM110.828 136.69H119.448V145.31H110.828V136.69ZM128.069 136.69H136.69V145.31H128.069V136.69ZM136.69 136.69H145.31V145.31H136.69V136.69ZM145.31 136.69H153.931V145.31H145.31V136.69ZM153.931 136.69H162.552V145.31H153.931V136.69ZM171.172 136.69H179.793V145.31H171.172V136.69ZM179.793 136.69H188.414V145.31H179.793V136.69ZM231.517 136.69H240.138V145.31H231.517V136.69ZM257.379 136.69H266V145.31H257.379V136.69ZM24.6207 145.31H33.2414V153.931H24.6207V145.31ZM41.8621 145.31H50.4828V153.931H41.8621V145.31ZM76.3448 145.31H84.9655V153.931H76.3448V145.31ZM110.828 145.31H119.448V153.931H110.828V145.31ZM119.448 145.31H128.069V153.931H119.448V145.31ZM145.31 145.31H153.931V153.931H145.31V145.31ZM179.793 145.31H188.414V153.931H179.793V145.31ZM197.034 145.31H205.655V153.931H197.034V145.31ZM205.655 145.31H214.276V153.931H205.655V145.31ZM231.517 145.31H240.138V153.931H231.517V145.31ZM240.138 145.31H248.759V153.931H240.138V145.31ZM248.759 145.31H257.379V153.931H248.759V145.31ZM33.2414 153.931H41.8621V162.552H33.2414V153.931ZM50.4828 153.931H59.1034V162.552H50.4828V153.931ZM59.1034 153.931H67.7241V162.552H59.1034V153.931ZM67.7241 153.931H76.3448V162.552H67.7241V153.931ZM76.3448 153.931H84.9655V162.552H76.3448V153.931ZM93.5862 153.931H102.207V162.552H93.5862V153.931ZM128.069 153.931H136.69V162.552H128.069V153.931ZM136.69 153.931H145.31V162.552H136.69V153.931ZM145.31 153.931H153.931V162.552H145.31V153.931ZM162.552 153.931H171.172V162.552H162.552V153.931ZM171.172 153.931H179.793V162.552H171.172V153.931ZM214.276 153.931H222.897V162.552H214.276V153.931ZM231.517 153.931H240.138V162.552H231.517V153.931ZM248.759 153.931H257.379V162.552H248.759V153.931ZM16 162.552H24.6207V171.172H16V162.552ZM24.6207 162.552H33.2414V171.172H24.6207V162.552ZM41.8621 162.552H50.4828V171.172H41.8621V162.552ZM59.1034 162.552H67.7241V171.172H59.1034V162.552ZM76.3448 162.552H84.9655V171.172H76.3448V162.552ZM110.828 162.552H119.448V171.172H110.828V162.552ZM119.448 162.552H128.069V171.172H119.448V162.552ZM136.69 162.552H145.31V171.172H136.69V162.552ZM179.793 162.552H188.414V171.172H179.793V162.552ZM188.414 162.552H197.034V171.172H188.414V162.552ZM197.034 162.552H205.655V171.172H197.034V162.552ZM222.897 162.552H231.517V171.172H222.897V162.552ZM231.517 162.552H240.138V171.172H231.517V162.552ZM240.138 162.552H248.759V171.172H240.138V162.552ZM16 171.172H24.6207V179.793H16V171.172ZM24.6207 171.172H33.2414V179.793H24.6207V171.172ZM33.2414 171.172H41.8621V179.793H33.2414V171.172ZM41.8621 171.172H50.4828V179.793H41.8621V171.172ZM50.4828 171.172H59.1034V179.793H50.4828V171.172ZM59.1034 171.172H67.7241V179.793H59.1034V171.172ZM67.7241 171.172H76.3448V179.793H67.7241V171.172ZM76.3448 171.172H84.9655V179.793H76.3448V171.172ZM110.828 171.172H119.448V179.793H110.828V171.172ZM128.069 171.172H136.69V179.793H128.069V171.172ZM136.69 171.172H145.31V179.793H136.69V171.172ZM153.931 171.172H162.552V179.793H153.931V171.172ZM171.172 171.172H179.793V179.793H171.172V171.172ZM179.793 171.172H188.414V179.793H179.793V171.172ZM240.138 171.172H248.759V179.793H240.138V171.172ZM257.379 171.172H266V179.793H257.379V171.172ZM16 179.793H24.6207V188.414H16V179.793ZM24.6207 179.793H33.2414V188.414H24.6207V179.793ZM50.4828 179.793H59.1034V188.414H50.4828V179.793ZM102.207 179.793H110.828V188.414H102.207V179.793ZM119.448 179.793H128.069V188.414H119.448V179.793ZM136.69 179.793H145.31V188.414H136.69V179.793ZM145.31 179.793H153.931V188.414H145.31V179.793ZM153.931 179.793H162.552V188.414H153.931V179.793ZM197.034 179.793H205.655V188.414H197.034V179.793ZM205.655 179.793H214.276V188.414H205.655V179.793ZM214.276 179.793H222.897V188.414H214.276V179.793ZM231.517 179.793H240.138V188.414H231.517V179.793ZM240.138 179.793H248.759V188.414H240.138V179.793ZM248.759 179.793H257.379V188.414H248.759V179.793ZM257.379 179.793H266V188.414H257.379V179.793ZM16 188.414H24.6207V197.034H16V188.414ZM24.6207 188.414H33.2414V197.034H24.6207V188.414ZM41.8621 188.414H50.4828V197.034H41.8621V188.414ZM50.4828 188.414H59.1034V197.034H50.4828V188.414ZM59.1034 188.414H67.7241V197.034H59.1034V188.414ZM67.7241 188.414H76.3448V197.034H67.7241V188.414ZM93.5862 188.414H102.207V197.034H93.5862V188.414ZM110.828 188.414H119.448V197.034H110.828V188.414ZM128.069 188.414H136.69V197.034H128.069V188.414ZM153.931 188.414H162.552V197.034H153.931V188.414ZM162.552 188.414H171.172V197.034H162.552V188.414ZM179.793 188.414H188.414V197.034H179.793V188.414ZM188.414 188.414H197.034V197.034H188.414V188.414ZM197.034 188.414H205.655V197.034H197.034V188.414ZM205.655 188.414H214.276V197.034H205.655V188.414ZM214.276 188.414H222.897V197.034H214.276V188.414ZM222.897 188.414H231.517V197.034H222.897V188.414ZM231.517 188.414H240.138V197.034H231.517V188.414ZM240.138 188.414H248.759V197.034H240.138V188.414ZM248.759 188.414H257.379V197.034H248.759V188.414ZM84.9655 197.034H93.5862V205.655H84.9655V197.034ZM93.5862 197.034H102.207V205.655H93.5862V197.034ZM102.207 197.034H110.828V205.655H102.207V197.034ZM128.069 197.034H136.69V205.655H128.069V197.034ZM145.31 197.034H153.931V205.655H145.31V197.034ZM153.931 197.034H162.552V205.655H153.931V197.034ZM162.552 197.034H171.172V205.655H162.552V197.034ZM171.172 197.034H179.793V205.655H171.172V197.034ZM188.414 197.034H197.034V205.655H188.414V197.034ZM222.897 197.034H231.517V205.655H222.897V197.034ZM231.517 197.034H240.138V205.655H231.517V197.034ZM240.138 197.034H248.759V205.655H240.138V197.034ZM16 205.655H24.6207V214.276H16V205.655ZM24.6207 205.655H33.2414V214.276H24.6207V205.655ZM33.2414 205.655H41.8621V214.276H33.2414V205.655ZM41.8621 205.655H50.4828V214.276H41.8621V205.655ZM50.4828 205.655H59.1034V214.276H50.4828V205.655ZM59.1034 205.655H67.7241V214.276H59.1034V205.655ZM67.7241 205.655H76.3448V214.276H67.7241V205.655ZM119.448 205.655H128.069V214.276H119.448V205.655ZM128.069 205.655H136.69V214.276H128.069V205.655ZM136.69 205.655H145.31V214.276H136.69V205.655ZM145.31 205.655H153.931V214.276H145.31V205.655ZM153.931 205.655H162.552V214.276H153.931V205.655ZM179.793 205.655H188.414V214.276H179.793V205.655ZM188.414 205.655H197.034V214.276H188.414V205.655ZM205.655 205.655H214.276V214.276H205.655V205.655ZM222.897 205.655H231.517V214.276H222.897V205.655ZM240.138 205.655H248.759V214.276H240.138V205.655ZM16 214.276H24.6207V222.897H16V214.276ZM67.7241 214.276H76.3448V222.897H67.7241V214.276ZM84.9655 214.276H93.5862V222.897H84.9655V214.276ZM110.828 214.276H119.448V222.897H110.828V214.276ZM128.069 214.276H136.69V222.897H128.069V214.276ZM145.31 214.276H153.931V222.897H145.31V214.276ZM171.172 214.276H179.793V222.897H171.172V214.276ZM179.793 214.276H188.414V222.897H179.793V214.276ZM188.414 214.276H197.034V222.897H188.414V214.276ZM222.897 214.276H231.517V222.897H222.897V214.276ZM231.517 214.276H240.138V222.897H231.517V214.276ZM16 222.897H24.6207V231.517H16V222.897ZM33.2414 222.897H41.8621V231.517H33.2414V222.897ZM41.8621 222.897H50.4828V231.517H41.8621V222.897ZM50.4828 222.897H59.1034V231.517H50.4828V222.897ZM67.7241 222.897H76.3448V231.517H67.7241V222.897ZM84.9655 222.897H93.5862V231.517H84.9655V222.897ZM93.5862 222.897H102.207V231.517H93.5862V222.897ZM102.207 222.897H110.828V231.517H102.207V222.897ZM110.828 222.897H119.448V231.517H110.828V222.897ZM162.552 222.897H171.172V231.517H162.552V222.897ZM179.793 222.897H188.414V231.517H179.793V222.897ZM188.414 222.897H197.034V231.517H188.414V222.897ZM197.034 222.897H205.655V231.517H197.034V222.897ZM205.655 222.897H214.276V231.517H205.655V222.897ZM214.276 222.897H222.897V231.517H214.276V222.897ZM222.897 222.897H231.517V231.517H222.897V222.897ZM16 231.517H24.6207V240.138H16V231.517ZM33.2414 231.517H41.8621V240.138H33.2414V231.517ZM41.8621 231.517H50.4828V240.138H41.8621V231.517ZM50.4828 231.517H59.1034V240.138H50.4828V231.517ZM67.7241 231.517H76.3448V240.138H67.7241V231.517ZM84.9655 231.517H93.5862V240.138H84.9655V231.517ZM119.448 231.517H128.069V240.138H119.448V231.517ZM128.069 231.517H136.69V240.138H128.069V231.517ZM171.172 231.517H179.793V240.138H171.172V231.517ZM179.793 231.517H188.414V240.138H179.793V231.517ZM188.414 231.517H197.034V240.138H188.414V231.517ZM197.034 231.517H205.655V240.138H197.034V231.517ZM214.276 231.517H222.897V240.138H214.276V231.517ZM248.759 231.517H257.379V240.138H248.759V231.517ZM16 240.138H24.6207V248.759H16V240.138ZM33.2414 240.138H41.8621V248.759H33.2414V240.138ZM41.8621 240.138H50.4828V248.759H41.8621V240.138ZM50.4828 240.138H59.1034V248.759H50.4828V240.138ZM67.7241 240.138H76.3448V248.759H67.7241V240.138ZM93.5862 240.138H102.207V248.759H93.5862V240.138ZM102.207 240.138H110.828V248.759H102.207V240.138ZM128.069 240.138H136.69V248.759H128.069V240.138ZM145.31 240.138H153.931V248.759H145.31V240.138ZM171.172 240.138H179.793V248.759H171.172V240.138ZM179.793 240.138H188.414V248.759H179.793V240.138ZM222.897 240.138H231.517V248.759H222.897V240.138ZM240.138 240.138H248.759V248.759H240.138V240.138ZM248.759 240.138H257.379V248.759H248.759V240.138ZM257.379 240.138H266V248.759H257.379V240.138ZM16 248.759H24.6207V257.379H16V248.759ZM67.7241 248.759H76.3448V257.379H67.7241V248.759ZM84.9655 248.759H93.5862V257.379H84.9655V248.759ZM93.5862 248.759H102.207V257.379H93.5862V248.759ZM128.069 248.759H136.69V257.379H128.069V248.759ZM153.931 248.759H162.552V257.379H153.931V248.759ZM222.897 248.759H231.517V257.379H222.897V248.759ZM231.517 248.759H240.138V257.379H231.517V248.759ZM240.138 248.759H248.759V257.379H240.138V248.759ZM257.379 248.759H266V257.379H257.379V248.759ZM16 257.379H24.6207V266H16V257.379ZM24.6207 257.379H33.2414V266H24.6207V257.379ZM33.2414 257.379H41.8621V266H33.2414V257.379ZM41.8621 257.379H50.4828V266H41.8621V257.379ZM50.4828 257.379H59.1034V266H50.4828V257.379ZM59.1034 257.379H67.7241V266H59.1034V257.379ZM67.7241 257.379H76.3448V266H67.7241V257.379ZM93.5862 257.379H102.207V266H93.5862V257.379ZM102.207 257.379H110.828V266H102.207V257.379ZM110.828 257.379H119.448V266H110.828V257.379ZM128.069 257.379H136.69V266H128.069V257.379ZM145.31 257.379H153.931V266H145.31V257.379ZM179.793 257.379H188.414V266H179.793V257.379ZM188.414 257.379H197.034V266H188.414V257.379ZM197.034 257.379H205.655V266H197.034V257.379ZM214.276 257.379H222.897V266H214.276V257.379ZM222.897 257.379H231.517V266H222.897V257.379ZM231.517 257.379H240.138V266H231.517V257.379ZM240.138 257.379H248.759V266H240.138V257.379Z" fill="black"/>
@@ -473,7 +488,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,.card:focus-visi
 <script>
 var MAIL="nunddigo@gmail.com";
 var WEB3FORMS_KEY="c2595e1f-bcf4-45f3-8be0-1a0a9ef8ed6a"; /* web3forms.com 발급 키 (활성). 비우면 mailto 폴백 */
-var KEY="nunddigo_eyetest_v20";
+var KEY="nunddigo_eyetest_v21";
 
 var SECTORS={
   fashion:{label:"패션",star:"시그니처 아이템",dc:"의류·잡화·슈즈"},
@@ -507,7 +522,7 @@ var AXES=[
   fix:"'왜 우리인가'를 '더 좋아서'가 아니라 '달라서'로 한 줄 써보세요. 남과 다른 한 가지.",
   blind:"더 좋다고만 말하면 결국 가격으로 비교당합니다. 다름이 없으면 안 띕니다."},
  {t:"뼈대",d:"채널마다 같은 브랜드로 서 있나. 일관·핵심 고객.",cause:true,
-  qs:["자사몰·인스타·상세의 첫인상이 같은 브랜드로 보인다.","우리가 지키는 핵심 가치 2~3개를 즉시 댈 수 있다.","누구를 위한 브랜드인지(핵심 고객)가 뾰족하다."],
+  qs:["1년 뒤 이 브랜드가 어디에 있어야 하는지 한 문장으로 말할 수 있다.","우리가 지키는 핵심 가치 2~3개를 즉시 댈 수 있다.","누구를 위한 브랜드인지(핵심 고객)가 뾰족하다."],
   fix:"핵심 고객 한 명을 문장으로 못 박으세요. '누구나'는 아무도 아닙니다.",
   blind:"가치도 대상도 흐리면 채널마다 다른 브랜드처럼 보입니다. 흩어진 인상은 시장이 안 합쳐줍니다."},
  {t:"표현",d:"얼굴과 목소리의 격이 사나. 톤.",cause:false,
@@ -560,7 +575,7 @@ function renderSector(){
 function refreshSecNext(){
   var ok=sector&&(sector!=="etc"||sectorEtc.length>0);
   document.getElementById("secNext").disabled=!ok;
-  document.getElementById("secHint").textContent=ok?"선택됨 — "+sectorLabel():"하나를 골라주세요";
+  document.getElementById("secHint").textContent=ok?"선택됨 · "+sectorLabel():"하나를 골라주세요";
 }
 /* 목표 (다중) */
 function renderGoal(){
@@ -627,7 +642,7 @@ function computeBlind(){
   var sunk=0;for(var a3=0;a3<5;a3++)if(aScore(a3)<=1)sunk++;
   return{blind:tied[0],tied:tied,sunk:sunk,min:min};
 }
-/* 검안 중 → 결과 */
+/* 검사 중 → 결과 */
 function runScan(){
   go("s-scan");topShow(false);
   var phrases=["시력을 재는 중…","초점을 맞추는 중…","맹점을 찾는 중…"],idx=0;
@@ -665,7 +680,7 @@ function renderResult(){
   if(v<=0.7){e="-_-";vd="시장 눈엔, 아직 안 보입니다.";su="MD는 3초 만에 덮습니다. 어디가 막혔는지는 아래에.";}
   else if(v<=1.3){e="O_-";vd="보이긴 하는데, 띄진 않습니다.";su="가장 급한 곳부터. 아래 맹점입니다.";}
   else if(v<=1.9){e="O_o";vd="이제, 띄기 직전입니다.";su="아래 맹점만 잡으면 넘어갑니다.";}
-  else{e="O_o";vd="이미 띕니다 — 이제 유지가 관건.";su="흔치 않은 결과입니다. 유지가 다음 과제.";}
+  else{e="O_o";vd="이미 띕니다 · 이제 유지가 관건.";su="흔치 않은 결과입니다. 유지가 다음 과제.";}
   document.getElementById("eyestate").innerHTML=eyeSVG(v);
   document.getElementById("verdict").textContent=vd;
   document.getElementById("rsum").textContent=su;
@@ -673,7 +688,7 @@ function renderResult(){
 
   var gl=goalLabels();
   var chips='<span class="chip">'+sectorLabel()+'</span><span class="op">×</span>';
-  chips+=gl.length?gl.map(function(g){return '<span class="chip">'+g+'</span>';}).join('<span class="op">·</span>'):'<span class="chip">—</span>';
+  chips+=gl.length?gl.map(function(g){return '<span class="chip">'+g+'</span>';}).join('<span class="op">·</span>'):'<span class="chip">·</span>';
   document.getElementById("eqRow").innerHTML=chips;
 
   var bars="";
@@ -684,26 +699,34 @@ function renderResult(){
 
   var b=computeBlind(),ax=AXES[b.blind];
   if(b.sunk>=3){
-    document.getElementById("blindTitle").innerHTML='<span class="hl">전면 재검안</span>';
+    document.getElementById("blindTitle").innerHTML='<span class="hl">전면 재검사</span>';
     document.getElementById("blindDesc").textContent="세 축 이상에서 시야가 뚫렸습니다. 부분 수정보다, 처음부터 초점을 다시 맞추는 게 빠릅니다.";
   }else{
     var showTies=(b.min<=1&&b.tied.length>1);
     document.getElementById("blindTitle").innerHTML=(showTies?b.tied:[b.blind]).map(function(i){return '<span class="hl">'+AXES[i].t+'</span>';}).join(' <span class="bx-dot">·</span> ');
-    document.getElementById("blindDesc").textContent=(showTies?"두 곳이 같이 걸렸습니다. "+ax.t+"부터 — ":"")+ax.blind;
+    document.getElementById("blindDesc").textContent=(showTies?"두 곳이 같이 걸렸습니다. "+ax.t+"부터 · ":"")+ax.blind;
   }
   document.getElementById("fix").textContent=ax.fix;
   document.getElementById("focusHint").textContent=b.sunk>=3?"가장 급한 축부터, 딱 하나만 오늘 손보세요.":"이거 하나면, 오늘 시력이 한 칸 오릅니다.";
   var tvs=goals.map(function(g){return g==="etc"?1.2:GOALS[g].tv;});
   var target=tvs.length?Math.max.apply(null,tvs):1.2;
   var gap=Math.round((target-v)*10)/10;
-  var glTxt=gl.length?gl.join(", "):"—";
-  if(gap>0){document.getElementById("goalLine").innerHTML='<b>목표 도수</b> '+glTxt+' 기준 '+target.toFixed(1)+'. 지금 '+v.toFixed(1)+' — <b style="color:var(--green)">'+gap.toFixed(1)+' 남았습니다.</b>';}
-  else{document.getElementById("goalLine").innerHTML='<b style="color:var(--green)">목표 도수에 닿았습니다.</b> 이제 유지가 관건입니다 — '+glTxt+'.';}
+  var glTxt=gl.length?gl.join(", "):"·";
+  if(gap>0){document.getElementById("goalLine").innerHTML='<b>목표 시력</b> '+glTxt+' 기준 '+target.toFixed(1)+'. 지금 '+v.toFixed(1)+'. <b style="color:var(--green)">'+gap.toFixed(1)+' 남았습니다.</b>';}
+  else{document.getElementById("goalLine").innerHTML='<b style="color:var(--green)">목표 시력에 닿았습니다.</b> 이제 유지가 관건입니다 · '+glTxt+'.';}
   var d=new Date(),pad=function(n){return (n<10?"0":"")+n;},yy=(""+d.getFullYear()).slice(2);
   document.getElementById("repDate").textContent=d.getFullYear()+"."+pad(d.getMonth()+1)+"."+pad(d.getDate());
-  document.getElementById("repNo").textContent="검안 결과지 · No."+yy+pad(d.getMonth()+1)+pad(d.getDate())+"-V"+pad(Math.round(v*10));
-  document.getElementById("coloLine").textContent="BRAND EYE-TEST · VOL."+yy+pad(d.getMonth()+1)+pad(d.getDate());
+  document.getElementById("repNo").textContent="시력검사 결과지 · E1-"+yy+pad(d.getMonth()+1)+pad(d.getDate())+"-V"+pad(Math.round(v*10));
+  document.getElementById("coloLine").textContent="BRAND EYE-TEST · E1-"+yy+pad(d.getMonth()+1)+pad(d.getDate());
   /* QR = 업로드 정적 SVG (nunddigo.svg 인라인) */
+  /* 상단 3줄 요약 */
+  var blindWord=b.sunk>=3?"전면 재검사":((b.min<=1&&b.tied.length>1)?b.tied:[b.blind]).map(function(i){return AXES[i].t;}).join(" · ");
+  document.getElementById("tl3").innerHTML=
+    '시력 <b>'+v.toFixed(1)+'</b> · 맹점 <b>'+blindWord+'</b> · '+(gap>0?'목표까지 <b>'+gap.toFixed(1)+'</b>':'<b>목표 도달</b>');
+  /* 표현 축이 최저일 때만 눈맞춤 노출 */
+  var expr=aScore(3), isLowest=true;
+  for(var z=0;z<5;z++){ if(aScore(z)<expr) isLowest=false; }
+  if(expr===0||isLowest){ document.getElementById("nextBox").style.display="block"; }
   renderFindings();
   window._blind=b;window._vision=v;
 
@@ -733,33 +756,33 @@ function sendRx(){
   if(links.length===0)probs.push("브랜드 링크 최소 1개");
   if(!email)probs.push("회신받을 이메일");
   else if(!validEmail(email))probs.push("올바른 이메일 형식(name@example.com)");
-  if(probs.length){errEl.textContent="다음을 확인해 주세요 — "+probs.join(", ");errEl.style.display="block";
+  if(probs.length){errEl.textContent="다음을 확인해 주세요 · "+probs.join(", ");errEl.style.display="block";
     if(links.length===0){var f=document.querySelector("#linkWrap .flink");if(f)f.classList.add("bad");}return;}
   errEl.style.display="none";
   var v=window._vision.toFixed(1), b=window._blind, gl=goalLabels();
-  var blindName=b.sunk>=3?"전면 재검안 (3축+ 침하)":AXES[b.blind].t;
+  var blindName=b.sunk>=3?"전면 재검사 (3축 이상 침하)":AXES[b.blind].t;
   var detail=[];for(var a=0;a<5;a++){detail.push("["+AXES[a].t+" "+aScore(a)+"/3]");for(var q=0;q<3;q++){detail.push("  "+(ans[a+"-"+q]?"O":"X")+" "+tok(AXES[a].qs[q]));}}
   var linkLines=links.map(function(l){return "  - "+l;}).join("\n");
   var body=
-    "〈브랜드 시력 검사〉 처방전 신청\n──────────────────\n"+
+    "〈브랜드 시력검사〉 처방전 신청\n──────────────────\n"+
     "브랜드명: "+brand+"\n성함: "+name+"\n"+
     "업종: "+sectorLabel()+"\n목표: "+(gl.length?gl.join(", "):"-")+"\n"+
     "링크:\n"+linkLines+"\n회신 이메일: "+email+"\n──────────────────\n"+
     "시장 시력: "+v+"\n맹점: "+blindName+"\n\n문항별 응답 (O=그렇다 / X=아니다):\n"+detail.join("\n")+"\n──────────────────\n"+
     "눈띄고가 꼭 알아야 할 점:\n"+(note?note:"(없음)")+"\n──────────────────\n"+
     "위 결과로 처방전을 신청합니다. O_o";
-  var subject="[브랜드 시력 검사] "+brand+" · "+sectorLabel()+" · 시력 "+v;
+  var subject="[눈띄고·시력검사] "+brand+" · E1-"+(new Date().toISOString().slice(2,10).replace(/-/g,""))+" · "+sectorLabel()+" · 시력 "+v;
   if(WEB3FORMS_KEY){
     var btn=document.getElementById("rxSend"),oldt=btn.textContent;btn.textContent="보내는 중…";btn.disabled=true;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
-      body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:subject,from_name:"브랜드 시력 검사",replyto:email,botcheck:"",
+      body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:subject,from_name:"브랜드 시력검사",replyto:email,botcheck:"",
         "브랜드명":brand,"시장 시력":v,"맹점":blindName,"목표":(gl.length?gl.join(", "):"-"),
         "★ 꼭 알아야 할 점":(note||"(없음)"),"링크":links.join("  /  "),
         "업종":sectorLabel(),"성함":name,"회신 이메일":email,
         "문항별 응답":"\n"+detail.join("\n")})
     }).then(function(r){return r.json();}).then(function(d){
-      if(d.success){showRxDone(email);}else{btn.textContent="전송 실패 — 다시 시도";btn.disabled=false;}
-    }).catch(function(){btn.textContent="네트워크 오류 — 다시 시도";btn.disabled=false;});
+      if(d.success){showRxDone(email);}else{btn.textContent="전송 실패 · 다시 시도";btn.disabled=false;}
+    }).catch(function(){btn.textContent="네트워크 오류 · 다시 시도";btn.disabled=false;});
   }else{
     window.location.href="mailto:"+MAIL+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
   }
@@ -770,7 +793,7 @@ function showRxDone(email){
   rx.style.textAlign="center";
   rx.innerHTML='<div class="rlbl green" style="justify-content:center">접수 완료 · Received</div>'
     +'<h3 style="margin-bottom:8px">접수됐습니다.</h3>'
-    +'<p class="intro-p">처방전은 <b>영업일 기준 48시간 내</b>에 <b>'+email+'</b>로 갑니다.<br>급하시면 아래의 채널로 문의 남겨주세요.</p>'
+    +'<p class="intro-p">처방전은 <b>빠르면 오늘 안, 늦어도 영업일 1일 안</b>에 <b>'+email+'</b>로 갑니다.<br>급하시면 아래의 채널로 문의 남겨주세요.</p>'
     +'<button class="btn full" id="kko">가장 빠른 1:1 카카오 &nbsp;&#8594;</button>';
   document.getElementById("kko").onclick=function(){window.open("http://pf.kakao.com/_emxgvK/chat","_blank","noopener")};
   rx.scrollIntoView({behavior:"smooth",block:"center"});
@@ -788,9 +811,9 @@ document.getElementById("rxSend").onclick=sendRx;
 function resetAll(){ans={};cur=0;sector="";sectorEtc="";goals=[];goalEtc="";try{localStorage.removeItem(KEY);}catch(e){}go("s-intro");topShow(false);gauge();}
 document.getElementById("copy").onclick=function(){
   var v=window._vision,b=window._blind;
-  var bw=b.sunk>=3?"전면 재검안":((b.min<=1&&b.tied.length>1)?b.tied:[b.blind]).map(function(i){return AXES[i].t;}).join(" · ");
+  var bw=b.sunk>=3?"전면 재검사":((b.min<=1&&b.tied.length>1)?b.tied:[b.blind]).map(function(i){return AXES[i].t;}).join(" · ");
   var t='['+document.getElementById("repNo").textContent+']\n\n'+
-  '검사 대상  '+sectorLabel()+' × '+(goalLabels().length?goalLabels().join('·'):'—')+'\n'+
+  '검사 대상  '+sectorLabel()+' × '+(goalLabels().length?goalLabels().join('·'):'·')+'\n'+
   '시장 시력  '+v.toFixed(1)+'  '+document.getElementById("verdict").textContent+'\n'+
   '맹점       '+bw+'\n'+
   '초점       '+document.getElementById("fix").textContent+'\n\n'+
