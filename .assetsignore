@@ -7,3 +7,9 @@ netlify.toml
 _headers
 _redirects
 .DS_Store
+
+src
+wrangler.jsonc
+tests
+*.command
+*.이전본

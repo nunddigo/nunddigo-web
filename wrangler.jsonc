@@ -5,6 +5,7 @@
   "compatibility_date": "2026-08-07",
   "compatibility_flags": ["nodejs_compat"],
   "observability": { "enabled": true },
+  "d1_databases": [{"binding":"EBOOK_LEADS","database_name":"nunddigo-ebook-leads","database_id":"66063fe2-85e1-4945-b5b9-b197459c836d"}],
   "assets": {
     "directory": ".",
     "binding": "ASSETS",

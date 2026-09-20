@@ -1,6 +1,8 @@
+import { signup } from './ebook.js';
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.hostname === "links.nunddigo.com" && url.pathname === "/ebook/api/signup") return signup(request, env);
     const map = {
       "eyetest.nunddigo.com": "/eyetest",
       "eyefit.nunddigo.com": "/eyefit",

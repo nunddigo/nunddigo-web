@@ -1,0 +1,157 @@
+/* 눈띄고 상담 안내 패널 · 전용 클래스만 사용한다(전역 header/footer/img 규칙과 분리) */
+
+.concierge-launcher{
+  position:fixed;right:24px;bottom:max(24px,env(safe-area-inset-bottom,0px));z-index:1100;
+  min-height:48px;padding:14px 22px;
+  background:#fff;color:#111;border:1px solid #8c8c8c;border-radius:100px;
+  font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;cursor:pointer;
+  box-shadow:0 4px 24px #00000026;
+}
+.concierge-launcher:hover{background:#f1f1f1}
+.nav-open .concierge-launcher{display:none}
+
+.concierge-panel{
+  position:fixed;inset:auto 24px 88px auto;margin:0;
+  width:380px;max-width:calc(100vw - 32px);
+  height:auto;max-height:min(640px,calc(100dvh - 120px));
+  padding:0;background:#fafafa;color:#111;
+  border:1px solid #9a9a9a;border-radius:20px;box-shadow:0 20px 80px #0000004d;
+  overflow:hidden;                      /* 패널은 안 움직이고 본문만 스크롤된다 */
+  flex-direction:column;
+}
+.concierge-panel[open]{display:flex}
+.concierge-panel::backdrop{background:#00000040}
+
+.concierge-panel .concierge-header{
+  display:flex;align-items:center;gap:12px;flex:0 0 auto;
+  padding:16px 16px 16px 20px;border-bottom:1px solid #d4d4d4;background:#fafafa;
+}
+.concierge-panel .concierge-header img{
+  width:40px!important;height:40px!important;flex:0 0 40px;
+  border-radius:50%;background:#fff;object-fit:contain;
+}
+.concierge-panel .concierge-header>div{flex:1;min-width:0}
+.concierge-panel .concierge-header strong{display:block;font-size:16px;line-height:1.3}
+.concierge-panel .concierge-header small{display:block;font-size:11px;color:#5f5f5f;margin-top:3px}
+.concierge-panel .concierge-header button{
+  flex:0 0 44px;width:44px;height:44px;margin-left:auto;
+  border:0;background:transparent;color:#111;font-size:28px;line-height:1;cursor:pointer;border-radius:8px;
+}
+.concierge-panel .concierge-header button:hover{background:#ececec}
+
+.concierge-panel .concierge-nav{
+  display:flex;gap:8px;flex:0 0 auto;
+  padding:8px 12px;border-bottom:1px solid #e2e2e2;background:#f2f2f2;
+}
+.concierge-panel .concierge-nav[hidden]{display:none}
+.concierge-panel .concierge-nav button{
+  min-height:36px;padding:6px 12px;border:0;border-radius:8px;
+  background:transparent;color:#4a4a4a;font-family:inherit;font-size:13px;cursor:pointer;
+}
+.concierge-panel .concierge-nav button:hover{background:#e2e2e2;color:#111}
+.concierge-panel .concierge-nav button:last-child{margin-left:auto}
+
+.concierge-content{
+  flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;
+  padding:24px;
+}
+.concierge-content:focus{outline:none}
+.concierge-content h2{
+  font-size:22px;line-height:1.4;letter-spacing:-.04em;margin:0 0 10px;
+  font-weight:700;word-break:keep-all;color:#111;
+}
+.concierge-content p,.concierge-content li{
+  font-size:14px;line-height:1.7;color:#575757;word-break:keep-all;margin:0 0 6px;
+}
+.concierge-content ol{padding-left:20px;margin:0 0 10px}
+.concierge-content .cc-note{font-size:12px;color:#6b6b6b;margin-top:12px}
+
+.concierge-content .cc-act{
+  display:block;width:100%;box-sizing:border-box;text-align:left;
+  min-height:48px;padding:14px 16px;margin-top:10px;
+  border:1px solid #c2c2c2;border-radius:10px;background:#fff;color:#111;
+  font-family:inherit;font-size:14px;line-height:1.5;text-decoration:none;cursor:pointer;
+}
+.concierge-content .cc-act:hover{background:#ededed}
+
+.concierge-content .cc-search{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.concierge-content .cc-search label{
+  flex:1 0 100%;font-size:12px;color:#5f5f5f;
+}
+.concierge-content .cc-search input{
+  flex:1 1 140px;min-width:0;min-height:48px;box-sizing:border-box;
+  padding:12px 14px;border:1px solid #c2c2c2;border-radius:10px;
+  background:#fff;color:#111;font-family:inherit;font-size:14px;
+}
+.concierge-content .cc-search .cc-act{flex:0 0 auto;width:auto;margin-top:0;text-align:center}
+
+.concierge-content .cc-faq{padding:14px 0;border-bottom:1px solid #d9d9d9}
+.concierge-content .cc-faq summary{
+  cursor:pointer;font-size:14px;line-height:1.6;color:#111;word-break:keep-all;
+  min-height:24px;padding:4px 0;
+}
+.concierge-content .cc-faq p{margin:8px 0 0}
+.concierge-content .cc-copy{white-space:pre-line;font-size:13px;color:#111;margin-top:8px}
+
+.concierge-panel .concierge-footer{
+  flex:0 0 auto;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));
+  font-size:11px;color:#5f5f5f;border-top:1px solid #d4d4d4;background:#fafafa;
+}
+
+.concierge-panel :focus-visible,.concierge-launcher:focus-visible{outline:2px solid #111;outline-offset:3px}
+
+/* 좁은 화면: 아래에서 올라오는 시트. 헤더와 닫기 버튼은 항상 보인다 */
+@media(max-width:600px){
+  .concierge-launcher{right:16px;bottom:max(16px,env(safe-area-inset-bottom,0px));padding:13px 18px}
+  .concierge-panel{
+    inset:auto 0 0 0;width:100%;max-width:100%;
+    max-height:min(88dvh,calc(100dvh - 24px));
+    border-radius:20px 20px 0 0;border-bottom:0;
+  }
+  .concierge-content{padding:20px}
+  .concierge-content h2{font-size:20px}
+}
+
+/* 낮은 화면과 200% 확대: 거의 전체를 쓰되 내부에서만 스크롤한다 */
+@media(max-height:560px){
+  .concierge-panel{inset:8px 8px 8px auto;max-height:calc(100dvh - 16px)}
+  .concierge-panel .concierge-header{padding:12px 12px 12px 16px}
+  .concierge-content{padding:16px}
+  .concierge-content h2{font-size:19px}
+}
+@media(max-width:600px) and (max-height:560px){
+  .concierge-panel{inset:8px;width:auto;max-width:none;border-radius:16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .concierge-panel,.concierge-launcher{transition:none!important;animation:none!important}
+}
+
+/* Monochrome guide: framed editorial grid. */
+.concierge-launcher{width:68px;height:68px;min-height:0;padding:0;border:2px solid #fff;background:#fff;box-shadow:0 0 0 1px #1113,0 8px 28px #0003;isolation:isolate}
+.concierge-orb{display:block;position:relative;width:100%;height:100%;overflow:hidden;border-radius:50%;background:#fff}
+.concierge-orb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .25s,transform .3s}
+.concierge-orb .cc-face{padding:10px;box-sizing:border-box}.concierge-orb .cc-thinking{padding:6px;box-sizing:border-box;opacity:0;transform:translateY(8px)}
+.concierge-launcher:hover .cc-face,.concierge-launcher:focus-visible .cc-face{opacity:0}.concierge-launcher:hover .cc-thinking,.concierge-launcher:focus-visible .cc-thinking{opacity:1;transform:translateY(0)}
+.cc-launch-label{position:absolute;right:80px;top:50%;transform:translateY(-50%);white-space:nowrap;padding:10px 14px;background:#111;color:#fff;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .2s;font-size:12px}
+.concierge-launcher:hover .cc-launch-label,.concierge-launcher:focus-visible .cc-launch-label{opacity:1}
+.concierge-panel{width:480px;max-height:min(740px,calc(100dvh - 120px));bottom:108px;border:3px solid #222;border-radius:24px;background:#f4f4f2;box-shadow:0 24px 60px #0004}
+.concierge-panel .concierge-header{padding:0;gap:0;align-items:stretch;border-bottom:3px solid #222;background:#f4f4f2}
+.concierge-panel .cc-heading{padding:24px!important}.concierge-panel .cc-heading small{font-size:9px;letter-spacing:.16em;margin:0 0 10px}.concierge-panel .cc-heading strong{font-size:30px;letter-spacing:-.055em}.cc-heading strong span{color:#888}
+.concierge-panel .concierge-header .cc-metal{width:88px;height:auto;flex:0 0 88px;border-left:3px solid #222;border-radius:0;font-size:30px;background:conic-gradient(from 35deg,#ddd,#999,#fafafa,#aaa,#eee,#999,#ddd);text-shadow:0 1px #fff}
+.cc-workspace{display:flex;flex:1;min-height:0}.cc-rail{width:90px;flex:0 0 90px;border-right:3px solid #222;background:#171717;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}.cc-hatch{height:90px;border-bottom:2px solid #eee;background:repeating-linear-gradient(135deg,transparent 0 8px,#777 8px 9px)}.cc-rail-caption{padding:20px 12px;font-size:13px;line-height:1.25;letter-spacing:-.04em}.cc-rail img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff;padding:6px;box-sizing:border-box;margin:16px auto}
+.cc-main{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column}.concierge-content{padding:24px 20px}.concierge-content h2{font-size:24px;line-height:1.35;margin-bottom:12px}.concierge-content .cc-act{border:0;border-bottom:1px solid #bbb;border-radius:0;background:transparent;padding:14px 0;margin:0;font-size:13px;min-height:48px}.concierge-content .cc-act:hover{background:#e5e5e2}.concierge-content p{font-size:13px;margin-bottom:14px}.concierge-nav{border-bottom:1px solid #222!important}.concierge-panel .concierge-footer{border-top:3px solid #222;padding:12px 18px;font-size:10px}.concierge-content .cc-search input{border-radius:0;font-size:16px}.concierge-content .cc-search .cc-act{padding:10px}.concierge-content .cc-faq summary{font-size:13px}.concierge-content .cc-faq p{font-size:13px}
+@media(max-width:600px){.concierge-launcher{width:60px;height:60px;padding:0}.concierge-panel{inset:auto 10px 10px;width:calc(100% - 20px);max-width:none;max-height:calc(100dvh - 30px);border:3px solid #222;border-radius:22px}.cc-rail{width:58px;flex-basis:58px}.cc-hatch{height:64px}.cc-rail-caption{font-size:10px;padding:16px 8px}.cc-rail img{width:36px;height:36px;padding:4px}.concierge-panel .cc-heading{padding:20px 16px!important}.concierge-panel .cc-heading strong{font-size:27px}.concierge-panel .concierge-header .cc-metal{flex-basis:64px;width:64px}.concierge-content{padding:22px 16px}.concierge-content h2{font-size:22px}.cc-launch-label{right:70px}}
+@media(prefers-reduced-motion:reduce){.concierge-orb img,.cc-launch-label{transition:none}}
+
+/* Reviewed guide heading and profile. */
+.concierge-panel .cc-heading{display:flex;align-items:center;min-height:104px;box-sizing:border-box}
+.concierge-panel .cc-heading strong{font-size:36px;line-height:1.2;letter-spacing:-.055em}
+.concierge-panel .concierge-footer{text-align:center;line-height:1.6}
+.cc-rail img{width:54px;height:54px;padding:5px;object-fit:contain}
+@media(max-width:600px){.concierge-panel .cc-heading{min-height:96px}.concierge-panel .cc-heading strong{font-size:31px}.cc-rail img{width:42px;height:42px;padding:4px}.concierge-panel .concierge-footer{font-size:10px;padding-inline:10px}}
+
+/* Keep the website interactive while the guide is open. */
+.concierge-panel{z-index:1200}.concierge-panel::backdrop{background:transparent;backdrop-filter:none}
+.cc-launch-label::after{content:"";position:absolute;right:-6px;top:calc(50% - 6px);border-width:6px 0 6px 7px;border-style:solid;border-color:transparent transparent transparent #111}
+@media(min-width:601px){.concierge-launcher{width:88px;height:88px}.concierge-panel{bottom:128px;max-height:min(740px,calc(100dvh - 152px))}.cc-launch-label{right:100px}}
