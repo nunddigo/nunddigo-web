@@ -480,14 +480,13 @@
           <label class="consent"><input id="consent" type="checkbox" required><span>[필수] 전자책 제공을 위한 이메일 수집·이용 및 눈띄고 소식·광고성 정보 수신에 동의합니다.</span></label>
           <details><summary>동의 내용 보기</summary><p>수집 항목: 이메일 주소<br>목적: 전자책 제공, 구독 관리, 브랜드 콘텐츠 및 서비스 소식(광고성 정보) 발송<br>보유 기간: 동의 철회 시까지<br>철회 요청: <a href="mailto:nunddigo@gmail.com" style="color:inherit">nunddigo@gmail.com</a> 동의하지 않으면 신청할 수 없습니다.<br>이메일과 동의 시각·동의 문구 버전은 Cloudflare D1에 저장됩니다. 운영자: 눈띄고(최재윤).</p></details>
         <label class="sr-only" aria-hidden="true">웹사이트<input id="website" type="text" tabindex="-1" autocomplete="off"></label><p id="formStatus" role="status" style="font-size:12px;line-height:1.6;margin:12px 8px;color:#ddd"></p></form>
-        <div id="reader" hidden tabindex="-1"><p class="ready" role="status">전자책이 준비됐습니다.</p><div class="actions"><a class="read" href="https://links.nunddigo.com/ebook/ebook.pdf" target="_blank" rel="noopener">바로 읽기 →</a><a class="download" href="https://links.nunddigo.com/ebook/ebook.pdf" target="_blank" rel="noopener">PDF 열기·저장</a></div><button id="back" type="button">신청 화면으로</button></div>
         <p class="preview">신청 후 바로 읽고 PDF로 저장할 수 있습니다.</p>
       </section>
     </main>
   </div>
 
   <script>
-    const form=document.querySelector('#accessForm'), reader=document.querySelector('#reader');
+    const form=document.querySelector('#accessForm');
     form.addEventListener('submit',async event=>{
       event.preventDefault();if(!form.reportValidity())return;
       const button=form.querySelector('button[type="submit"]'),status=document.querySelector('#formStatus');
@@ -496,11 +495,11 @@
         const response=await fetch('/ebook/api/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.querySelector('#email').value,consent:document.querySelector('#consent').checked,website:document.querySelector('#website').value})});
         const result=await response.json();
         if(!response.ok||result.ok!==true)throw new Error(result.error||'신청하지 못했습니다. 다시 시도해주세요.');
-        form.hidden=true;reader.hidden=false;form.reset();status.textContent='';reader.focus({preventScroll:true});
+        status.textContent='전자책을 여는 중입니다.';
+        window.location.assign('/ebook/ebook.pdf');
       }catch(error){status.textContent=error.message||'연결을 확인하고 다시 시도해주세요.';}
       finally{button.disabled=false;}
     });
-    document.querySelector('#back').addEventListener('click',()=>{reader.hidden=true;form.hidden=false;document.querySelector('#email').focus()});
   </script>
   <script>
     (() => {
