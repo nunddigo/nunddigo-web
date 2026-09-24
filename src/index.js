@@ -1,30 +1,48 @@
-import { signup, hasEbookAccess } from './ebook.js';
+const MAIN_SITE = "https://nunddigo.com";
+
+function retiredLinkDestination(url) {
+  // The same static assets were also reachable below /links on the Worker URL.
+  const path = url.pathname.replace(/^\/links(?=\/|$)/i, "") || "/";
+  const normalized = path.toLowerCase();
+  let target = "/";
+
+  if (/^\/(?:ebook(?:\/|$|\.)|thumb_ebook)/.test(normalized)) {
+    target = "/ebook/";
+  } else if (/^\/(?:eyetest|thumb_eyetest)(?:\/|$|\.)/.test(normalized)) {
+    target = "https://eyetest.nunddigo.com/";
+  } else if (/^\/(?:eyefit|thumb_eyefit)(?:\/|$|\.)/.test(normalized)) {
+    target = "https://eyefit.nunddigo.com/";
+  } else if (/^\/(?:works?|portfolio|project|logos)(?:\/|$|\.)/.test(normalized)) {
+    target = "/works";
+  } else if (/^\/(?:services?|service)(?:\/|$|\.)/.test(normalized)) {
+    target = "/services";
+  } else if (/^\/(?:reviews?|review)(?:\/|$|\.)/.test(normalized)) {
+    target = "/reviews";
+  } else if (/^\/(?:insights?|ideas|articles?|blog)(?:\/|$|\.)/.test(normalized)) {
+    target = "/insights";
+  } else if (/^\/(?:consult|contact|kakao)(?:\/|$|\.)/.test(normalized)) {
+    target = "/#consult";
+  } else if (normalized === "/sitemap.xml" || normalized === "/robots.txt") {
+    target = normalized;
+  }
+
+  const destination = new URL(target, MAIN_SITE);
+  destination.search = url.search;
+  return destination;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.hostname === "links.nunddigo.com" && url.pathname === "/ebook/api/signup") return signup(request, env);
+    // Retire only the link hub. The eye-test and eye-fit hosts keep their assets.
+    if (url.hostname === "links.nunddigo.com" || (url.hostname.endsWith(".workers.dev") && (url.pathname === "/links" || url.pathname.startsWith("/links/")))) {
+      return Response.redirect(retiredLinkDestination(url).toString(), 301);
+    }
     const map = {
       "eyetest.nunddigo.com": "/eyetest",
       "eyefit.nunddigo.com": "/eyefit",
-      "links.nunddigo.com": "/links",
     };
-    // E-book PDF: never indexed, and only opened right after signing up on /ebook/.
-    if (/^\/(?:links\/)?ebook\/.*\.pdf$/i.test(url.pathname)) {
-      if (!(await hasEbookAccess(request, env))) {
-        return new Response(null, {status: 302, headers: {"Location": "https://links.nunddigo.com/ebook/", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow"}});
-      }
-      const pdf = await env.ASSETS.fetch(new Request(new URL("/links/ebook/ebook.pdf", url).toString(), request));
-      const headers = new Headers(pdf.headers);
-      headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-      headers.set("Cache-Control", "private, no-store");
-      return new Response(pdf.body, {status: pdf.status, headers});
-    }
     const prefix = map[url.hostname];
-    // Search cleanup (2026-09-23): the old link page is retired and the studio's
-    // single home is nunddigo.com. Internal folder paths must not be reachable twice.
-    if (url.hostname === "links.nunddigo.com" && ["/", "/index.html", "/links", "/links/", "/links/index.html"].includes(url.pathname)) {
-      return Response.redirect("https://nunddigo.com/", 301);
-    }
     if (prefix && (url.pathname === prefix || url.pathname.startsWith(prefix + "/"))) {
       const clean = new URL(url);
       clean.pathname = url.pathname.slice(prefix.length) || "/";
